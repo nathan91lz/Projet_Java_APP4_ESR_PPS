@@ -16,21 +16,31 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 
 /**
- *
+ * Cette class permet d'ajouter, de modifier ou de supprimer les séances dans un planning comprennant les jours de la semaine. 
+ * Cela permet de connaître les disponibilités et une vue d'enssemble de l'utilisateur.
+ * Lors de son utilisation, l'utilisateur doit avoir déjà créé une séance ainsi que des exercices associés
+ * <ul>
+ * <li>Le nom du fichier Excel associé au planning.</li>
+ * <li>Le nombre de jours dans le planning.</li>
+ * <li>Le jour de la séance.</li>
+ * <li>Le nom de la séance.</li>
+ * </ul>
  * @author lazarowicz
  */
 public class Planning {
     // Attributs
     public static String planning = "Planning";     
     public String nomF = Excel.nomFichier;
-    
-    private static boolean[] jours = new boolean[7]; //  tableau de boolean représenatant j de la semaine
+
     private int joursPlanning;
-    
     private String jour;
     private String nom;
 
-    // Constructeur
+    /**
+     * Constructeur de la classe Planning.
+     * @param nomJP Nom de la séance.
+     * @param jourP Jour de la séance.
+     */
     public Planning(String nomJP, String jourP) {
         if("init".equals(jourP)){
         //System.out.println("Initialisation ...");
@@ -44,18 +54,24 @@ public class Planning {
     }
 
     //Méthodes :
+
+    /**
+     * Définit le planning en ajoutant, modifiant ou supprimant une séance.
+     * @param nomP Nom de la séance.
+     * @param jour Jour de la séance.
+     */
     public void setPlanning(String nomP, String jour){
         try (FileInputStream fileIn = new FileInputStream(nomF + ".xlsx")) {
             Workbook workbook = new XSSFWorkbook(fileIn);
 
             Sheet sheet = workbook.getSheet(planning);   
-            
+
             int ligneJ = getLigneJour(jour);
-                 
+
             Row row = sheet.getRow(ligneJ+1);
             row.createCell(1).setCellValue(nomP);
             //System.out.println("Jour modifié");
-                
+
             try (FileOutputStream fileOut = new FileOutputStream(nomF + ".xlsx")) {
                 workbook.write(fileOut);
             }
@@ -65,17 +81,21 @@ public class Planning {
             e.printStackTrace();
         }
     }
-    
-    
-    
+
+
+    /**
+     * Récupère le nom de la séance pour un jour donné.
+     * @param jour Jour de la séance.
+     * @return Le nom de la séance.
+     */
     public String getNomSeancePlanning(String jour){
         String nomS = null;
         try (FileInputStream fileIn = new FileInputStream(nomF + ".xlsx")) {
             Workbook workbook = new XSSFWorkbook(fileIn);
             Sheet sheet = workbook.getSheet(planning);   
-            
+
             int ligneJ = getLigneJour(jour);
-            
+
             Row row = sheet.getRow(ligneJ+1);
             if (row != null) {
                 Cell cell = row.getCell(1);
@@ -98,18 +118,22 @@ public class Planning {
         }
         return nomS;
     }
-    
+
+    /**
+     * Supprime une séance du planning pour un jour donné.
+     * @param jour Jour de la séance à supprimer.
+     */
     public void removePlanning(String jour){
         try (FileInputStream fileIn = new FileInputStream(nomF + ".xlsx")) {
             Workbook workbook = new XSSFWorkbook(fileIn);
             Sheet sheet = workbook.getSheet(planning);   
-            
+
             int ligneJ = getLigneJour(jour);
-                 
+
             Row row = sheet.getRow(ligneJ+1);
             row.createCell(1).setCellValue("");
             //System.out.println("Jour supprimé");
-                
+
             try (FileOutputStream fileOut = new FileOutputStream(nomF + ".xlsx")) {
                 workbook.write(fileOut);
             }
@@ -119,23 +143,40 @@ public class Planning {
             e.printStackTrace();
         }
     }
-    
-    
+
+
+    /**
+     * Récupère le nom de la séance.
+     * @return Le nom de la séance.
+     */
     public String getNomPlanning(){
         return nom;
     }
-    
+
+    /**
+     * Récupère le jour de la séance.
+     * @return Le jour de la séance.
+     */
     public String getJourPlanning(){
         return jour;
     }
-    
+
+    /**
+     * Récupère le nom d'un jour à partir de son indice.
+     * @param i Indice du jour.
+     * @return Le nom du jour.
+     */
     public static String getNomJours(int i){
         String[] jours = {"Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi", "Dimanche"};
         //System.out.println("Jour : " + jours[i]);
         return jours[i]; 
     }
-    
-    
+
+    /**
+     * Récupère l'indice d'un jour à partir de son nom.
+     * @param Jour Nom du jour.
+     * @return L'indice du jour.
+     */
     public static int getLigneJour(String Jour){
         String jour = Jour.toLowerCase();
         switch(jour){
@@ -151,7 +192,7 @@ public class Planning {
                 return -1;
         }
     }
-    
 
-    
+
+
 }

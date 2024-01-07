@@ -31,6 +31,11 @@ public class Menu extends javax.swing.JFrame {
     }
     
     //Méthodes :
+    
+    /**
+     * Permet d'initiliser les affichages de l'interface. 
+     * 
+     */
     public void initialisation(){
         //Planning
         Planning planning = new Planning("initialisation", "init");

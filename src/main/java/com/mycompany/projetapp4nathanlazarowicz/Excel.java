@@ -10,7 +10,11 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+
 /**
+ * La classe Excel gère la création et l'ouverture de fichiers Excel pour la gestion des séances d'exercice, 
+ * y compris les séances de musculation, le planning, et les exercices.
+ * Elle sert de base de donnée.
  *
  * @author lazarowicz
  */
@@ -21,17 +25,30 @@ public class Excel {
         private String exercice = Exercice.exercice;
         private String seance = Seance.seance;
 
-        
+
+    /**
+     * Constructeur pour la classe Excel.
+     * Ouvre un fichier Excel existant ou crée un nouveau fichier si nécessaire.
+     *
+     * @param nomF Le nom du fichier Excel à ouvrir ou à créer.
+     */
     public Excel(String nomF){
         ouvrirExcel(nomF);
     }
-    
+
+    /**
+     * Crée un nouveau fichier Excel prédéfinit avec des feuilles pour le planning, les séances, 
+     * les mises à jour de musculation, et les exercices.
+     * Chaque feuille est initialisée avec des entêtes de colonne appropriées.
+     *
+     * @param nomF Le nom du nouveau fichier Excel à créer.
+     */
     public void creerFichierExcel(String nomF){
         this.nomFichier = nomF;
         try {
             // Crée un classeur Excel (XLSX)
             Workbook workbook = new XSSFWorkbook();
-            
+
             //  Feuille Planning : comporte nom des sénaces / jours
             Sheet sheetPlanning = workbook.createSheet(planning);
             Row rowJours = sheetPlanning.createRow(0);
@@ -51,7 +68,7 @@ public class Excel {
             rowSamedi.createCell(0).setCellValue("Samedi");
             Row rowDimanche = sheetPlanning.createRow(7);
             rowDimanche.createCell(0).setCellValue("Dimanche");
-            
+
             //  Feuille Seances 
             Sheet sheetSeance = workbook.createSheet(seance);
             Row rowS = sheetSeance.createRow(0);
@@ -68,7 +85,7 @@ public class Excel {
             rowS.createCell(10).setCellValue("Exercice 9");
             rowS.createCell(11).setCellValue("Exercice 10");
             //  ->>> comment faire N sénace ?????
-            
+
             //  Feuille MaJMusculation 
             Sheet sheetMaJMusculation = workbook.createSheet(majMusculation);
             Row rowM = sheetMaJMusculation.createRow(0);
@@ -78,7 +95,7 @@ public class Excel {
             rowM.createCell(3).setCellValue("Série");
             rowM.createCell(4).setCellValue("Répétition");
             rowM.createCell(5).setCellValue("Poids");
-            
+
             //  Feuille exercices
             Sheet sheetExercice = workbook.createSheet(exercice);
             Row rowE = sheetExercice.createRow(0);
@@ -86,9 +103,9 @@ public class Excel {
             rowE.createCell(1).setCellValue("Type d'exercice");
             rowE.createCell(2).setCellValue("Groupement musculaire");
             rowE.createCell(3).setCellValue("Muscle");
-            
+
             //  -> ajouter endurance et conditionnement     <-
-            
+
             // Créer un style de police : caractères gras
             Font boldFont = workbook.createFont();
             boldFont.setBold(true);
@@ -117,7 +134,13 @@ public class Excel {
             e.printStackTrace();
         }
     }
-    
+
+    /**
+     * Ouvre un fichier Excel existant.
+     * Utilisé pour accéder aux données dans un fichier Excel existant.
+     *
+     * @param nomFichier Le nom du fichier Excel à ouvrir.
+     */
     public void ouvrirExcel(String nomFichier){
         this.nomFichier = nomFichier;
         try (FileInputStream fileIn = new FileInputStream(nomFichier + ".xlsx")) {

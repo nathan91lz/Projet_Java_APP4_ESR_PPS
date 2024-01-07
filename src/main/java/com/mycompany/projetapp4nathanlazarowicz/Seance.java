@@ -16,7 +16,11 @@ import java.util.Scanner; // récupérer caracteres
 import org.apache.poi.ss.usermodel.Cell;
 
 /**
- *
+ * La classe Seance permet de créer, supprimer et manipuler les séances dans un fichier Excel.
+ * Elle inclut des fonctionnalités telles que l'ajout d'une séance, la modification des exercices d'une séance,
+ * la suppression d'une séance ou d'un exercice, la lecture des données d'une séance, etc.
+ * Au préalable, l'utilisateur doit avoir rentré des exercices pour pouvoir créer une séance.
+ * 
  * @author lazarowicz
  */
 public class Seance {
@@ -24,12 +28,18 @@ public class Seance {
     public static String seance = "Séance";
     private static int nombreExereciceMax = 0;
     private static int nombreColonneSeance = 0;
-    
+
     private String nomF = Excel.nomFichier;
-    
+
     private String type;
     private String nom;  
-    
+
+    /**
+     * Constructeur de la classe Seance.
+     * @param nomJP Nom de la séance.
+     * @param type Type d'exercices de la séance.
+     * @param nomExo Nom de l'exercice associé à la séance.
+     */
     public Seance(String nomJP, String type, String nomExo){  //    Appel de la classe fille avec les instances de la classe mere
         if(nomJP.equals("init")){
             //System.out.println("Initialisation ...");
@@ -41,9 +51,17 @@ public class Seance {
          }
     }  
 
-   
+
    //Méthodes : 
-   public int ajouterSeance(String nomS, String typeS, String nomExo){
+
+    /**
+     * Ajoute une nouvelle séance dans le fichier Excel.
+     * @param nomS Nom de la séance.
+     * @param typeS Type de la séance.
+     * @param nomExo Nom de l'exercice associé à la séance.
+     * @return Le nombre de colonnes dans la séance.
+     */
+    public int ajouterSeance(String nomS, String typeS, String nomExo){
        try (FileInputStream fileIn = new FileInputStream(nomF + ".xlsx")) {
             Workbook workbook = new XSSFWorkbook(fileIn);
 
@@ -54,13 +72,13 @@ public class Seance {
             row.createCell(0).setCellValue(nomS);
             row.createCell(1).setCellValue(typeS);
             row.createCell(2).setCellValue(nomExo);
-            
-            
+
+
             try (FileOutputStream fileOut = new FileOutputStream(nomF + ".xlsx")) {
                 workbook.write(fileOut);
             }
             workbook.close();
-            
+
             return nombreColonneSeance;
         }
         catch (IOException e) {
@@ -68,15 +86,21 @@ public class Seance {
             return -1; // Indique un échec
         }
    }
-   
-   public int setExerciceSeance(String nomS, String nomExo){
-       int nombreExerciceMax = 0;
-       try (FileInputStream fileIn = new FileInputStream(nomF + ".xlsx")) {
+
+    /**
+     * Modifie les exercices associés à une séance.
+     * @param nomS Nom de la séance.
+     * @param nomExo Nom de l'exercice à ajouter à la séance.
+     * @return Le nombre d'exercices maximum dans la séance.
+     */
+    public int setExerciceSeance(String nomS, String nomExo){
+        int nombreExerciceMax = 0;
+        try (FileInputStream fileIn = new FileInputStream(nomF + ".xlsx")) {
             Workbook workbook = new XSSFWorkbook(fileIn);
 
             Sheet sheet = workbook.getSheet(seance); 
             String testNomS = null;
-            
+
             for(int i = 1; i <= sheet.getLastRowNum(); i++){
                 testNomS = getNomSeance(i);
                 if(testNomS.trim().equals(nomS)){
@@ -99,8 +123,13 @@ public class Seance {
         }
        return nombreExerciceMax;
    }
-   
-   public int getLigneSeance(String ligneS){
+
+    /**
+     * Retourne la ligne associée à une séance.
+     * @param ligneS Nom de la séance.
+     * @return L'indice de la ligne associée à la séance.
+     */
+    public int getLigneSeance(String ligneS){
         int ligneM = 0;
         int ligne = 0;
         try (FileInputStream fileIn = new FileInputStream(nomF + ".xlsx")) {
@@ -108,13 +137,13 @@ public class Seance {
             Sheet sheet = workbook.getSheet(seance);
 
             ligneM = sheet.getLastRowNum();
-            
+
             for(int i = 0; i <= ligneM; i++){
                 if(getNomSeance(i).equals(ligneS)){
                     ligne = i;
                 }
             }
-            
+
             workbook.close();
         } 
         catch (IOException e) {
@@ -122,8 +151,13 @@ public class Seance {
         }
         return ligne;
    }
-   
-   public int getColonneSeance(int ligne){
+
+    /**
+     * Retourne le nombre de colonnes associées à une séance.
+     * @param ligne Indice de la ligne de la séance.
+     * @return Le nombre de colonnes dans la séance.
+     */
+    public int getColonneSeance(int ligne){
        int colonne = 0;
         try (FileInputStream fileIn = new FileInputStream(nomF + ".xlsx")) {
             Workbook workbook = new XSSFWorkbook(fileIn);
@@ -139,8 +173,12 @@ public class Seance {
         }
         return colonne;
    }
-   
-   public int getNombreLigneSeance(){
+
+    /**
+     * Retourne le nombre total de lignes dans la feuille de séance.
+     * @return Le nombre de lignes dans la feuille de séance.
+     */
+    public int getNombreLigneSeance(){
         int ligne = 0;
         try (FileInputStream fileIn = new FileInputStream(nomF + ".xlsx")) {
             Workbook workbook = new XSSFWorkbook(fileIn);
@@ -156,8 +194,13 @@ public class Seance {
         nombreColonneSeance = ligne;
         return ligne;
     }
-   
-   public void removeSeance(String nomExo){
+
+    /**
+     * Supprime une séance du fichier Excel.
+     * Elle permet aussi de remonter les colonnes successives
+     * @param nomExo Nom de la séance à supprimer.
+     */
+    public void removeSeance(String nomExo){
         int ligne = 1;
         try (FileInputStream fileIn = new FileInputStream(nomF + ".xlsx")) {
             Workbook workbook = new XSSFWorkbook(fileIn);
@@ -193,8 +236,14 @@ public class Seance {
             e.printStackTrace();
         }
     }
-   
-   public void removeExerciceSeance(String nomS, int exo){
+
+    /**
+     * Supprime un exercice d'une séance du fichier Excel.
+     * (J'ai essayé de décaller les cellules suivantes vers la gauche pour ne pas laisser de cellules vide. A ce jour je n'ai pas réussi.)
+     * @param nomS Nom de la séance.
+     * @param exo Indice de l'exercice à supprimer.
+     */
+    public void removeExerciceSeance(String nomS, int exo){
         try (FileInputStream fileIn = new FileInputStream(nomF + ".xlsx")) {
             Workbook workbook = new XSSFWorkbook(fileIn);
             Sheet sheet = workbook.getSheet(seance);
@@ -239,13 +288,19 @@ public class Seance {
             e.printStackTrace();
         }
    }
-   
-   public String[] lectureDonneesSeance(int ligne){ 
+
+    /**
+    * Lit les données de la séance et retourne sous forme de tableau de String.
+    * 
+    * @param ligne Le numéro de ligne à lire dans la feuille de calcul.
+    * @return Un tableau de chaînes contenant les données de l'exercice, ou un tableau vide si la ligne est inexistante.
+    */
+    public String[] lectureDonneesSeance(int ligne){ 
         String[] exerciceData = new String[12];
         try (FileInputStream fileIn = new FileInputStream(nomF + ".xlsx")) {
             Workbook workbook = new XSSFWorkbook(fileIn);
             Sheet sheet = workbook.getSheet(seance);
-            
+
             Row row = sheet.getRow(ligne);
             if(row != null){
                 Cell cell0 = row.getCell(0);
@@ -284,13 +339,19 @@ public class Seance {
         }
         return exerciceData;
     }
-   
-   public String getNomSeance(int ligne){ 
+
+    /**
+    * Récupère le nom de la séance, basé sur le numéro de ligne spécifié.
+    * 
+    * @param ligne Le numéro de ligne à lire dans la feuille de calcul.
+    * @return Le nom de la séance si la ligne existe, sinon une chaîne vide.
+    */
+    public String getNomSeance(int ligne){ 
         String exerciceData = null;
         try (FileInputStream fileIn = new FileInputStream(nomF + ".xlsx")) {
             Workbook workbook = new XSSFWorkbook(fileIn);
             Sheet sheet = workbook.getSheet(seance);
-            
+
             Row row = sheet.getRow(ligne);
             if(row != null){
                 Cell cell0 = row.getCell(0);
@@ -307,16 +368,22 @@ public class Seance {
         }
         return exerciceData;
     }
-   
-   public boolean testNomSeance(String test){
+
+    /**
+    * Vérifie si le nom de séance spécifié existe dans le fichier Excel.
+    * 
+    * @param test Le nom de séance à tester.
+    * @return true si le nom de séance existe, false sinon.
+    */
+    public boolean testNomSeance(String test){
        boolean nomS = false;
        String testNomS;
         try (FileInputStream fileIn = new FileInputStream(nomF + ".xlsx")) {
             Workbook workbook = new XSSFWorkbook(fileIn);
             Sheet sheet = workbook.getSheet(seance);
-            
+
             int sMax = sheet.getLastRowNum();
-            
+
             for(int i = 1; i <= sMax; i++){
                 Row row = sheet.getRow(i);
                 if(row != null){
@@ -340,32 +407,38 @@ public class Seance {
         }
         return nomS;
    }
-   
-   
-   public int ajouterExercicesSeance(int nbExo){
+
+
+    /**
+    * Ajoute des exercices à une séance en modifiant le fichier.
+    * 
+    * @param nbExo Le nombre d'exercices à ajouter.
+    * @return Le numéro de colonne de la séance après ajout des exercices, ou -1 en cas d'échec.
+    */
+    public int ajouterExercicesSeance(int nbExo){
        try (FileInputStream fileIn = new FileInputStream(nomF + ".xlsx")) {
             Workbook workbook = new XSSFWorkbook(fileIn);
 
             Sheet sheet = workbook.getSheet(seance);   
 
             Row row = sheet.getRow(nombreColonneSeance);
-            
+
             Scanner scanner = new Scanner(System.in);
-            
+
             for(int i = 1; i <= nbExo; i++){
                 System.out.print("Rentrez le nom de l'exercice n°" + i + " : "); // => methode tester exercice s'il existe deja !!!
                 String nomExo = scanner.nextLine();
-                
+
                 row.createCell(1 + i).setCellValue(nomExo);  //getCell
             }
             scanner.close();
             setNombreExerciceMax(nbExo);
-            
+
             try (FileOutputStream fileOut = new FileOutputStream(nomF + ".xlsx")) {
                 workbook.write(fileOut);
             }
             workbook.close();
-            
+
             return nombreColonneSeance;
         }
         catch (IOException e) {
@@ -373,15 +446,20 @@ public class Seance {
             return -1; // Indique un échec
         }
    }
-   
-   public int getSeanceMax(){
+
+    /**
+    * Récupère le numéro de la dernière séance du fichier.
+    * 
+    * @return Le numéro de la dernière séance.
+    */
+    public int getSeanceMax(){
        int sMax = 0;
        try (FileInputStream fileIn = new FileInputStream(nomF + ".xlsx")) {
         Workbook workbook = new XSSFWorkbook(fileIn);
         Sheet sheet = workbook.getSheet(seance);
 
         sMax = sheet.getLastRowNum();
-        
+
 
         workbook.close();
         } 
@@ -391,21 +469,36 @@ public class Seance {
        nombreColonneSeance = sMax;
        return sMax;
    }
-   
-   private void setNombreExerciceMax(int nbExoMax){
+
+    /**
+    * Définit le nombre maximal d'exercices pour une séance.
+    * 
+    * @param nbExoMax Le nombre maximal d'exercices à définir.
+    */
+    private void setNombreExerciceMax(int nbExoMax){
        if(nbExoMax > nombreExereciceMax){
            nombreExereciceMax = nbExoMax;
        }
    }
-   
-   public int getNombreExerciceMax(){
+
+    /**
+    * Récupère le nombre maximal d'exercices pour une séance.
+    * 
+    * @return Le nombre maximal d'exercices.
+    */
+    public int getNombreExerciceMax(){
        //System.out.println("Nombre exercies max : " + nombreExereciceMax);
        return nombreExereciceMax;
    }
-    
-   public String getNomSeance(){
+
+    /**
+    * Récupère le nom de la séance actuelle.
+    * 
+    * @return Le nom de la séance.
+    */
+    public String getNomSeance(){
        return nom;
-   }
-    
+    }
+
 }
 
