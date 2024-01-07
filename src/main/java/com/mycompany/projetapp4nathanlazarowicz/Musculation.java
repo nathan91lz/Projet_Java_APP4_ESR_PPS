@@ -8,7 +8,6 @@ import java.time.LocalTime; //  get heure
 import java.time.format.DateTimeFormatter; //   chnager fomrat heure
 import java.util.Date; // Importez la classe Date pour la gestion des dates
 import java.time.LocalDate;
-
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -20,18 +19,17 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
  * @author lazarowicz
  */
 public class Musculation extends Exercice{
-    public String exerciceMuscu;
+    private String exerciceMuscu;
     protected int poids;
     
     public static final String majMusculation = "MaJMusculation"; //sheet
-    public int nombreColonneMusculation = 0;
-    
-    public String nomF = Excel.nomFichier;
+    private int nombreColonneMusculation = 0;
+    private String nomF = Excel.nomFichier;
     
     public Musculation(String nomExo, String typeExo, String groupementMuscu, String muscle) {
         super(nomExo, typeExo, groupementMuscu, muscle);
         if(nomExo.equals("init")){
-            System.out.println("Initialisation ...");
+            //System.out.println("Initialisation ...");
         }
         
     }
@@ -54,7 +52,6 @@ public class Musculation extends Exercice{
         catch (IOException e) {
             e.printStackTrace();
         }
-        //ligne --;
         nombreColonneMusculation = ligne;
         return ligne;
     }
@@ -75,11 +72,9 @@ public class Musculation extends Exercice{
             row.createCell(4).setCellValue(repetition);
             row.createCell(5).setCellValue(poids);
             
-            // Écrivez le classeur dans un fichier
             try (FileOutputStream fileOut = new FileOutputStream(nomF + ".xlsx")) {
                 workbook.write(fileOut);
             }
-            // Fermez le classeur pour libérer les ressources
             workbook.close();
             
             return nombreColonneMusculation;

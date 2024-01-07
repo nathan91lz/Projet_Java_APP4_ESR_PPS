@@ -4,8 +4,7 @@
  */
 package com.mycompany.projetapp4nathanlazarowicz;
 
-import static com.mycompany.projetapp4nathanlazarowicz.Exercice.exercice;
-import static com.mycompany.projetapp4nathanlazarowicz.Exercice.nombreColonneExercices;
+
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -23,36 +22,23 @@ import org.apache.poi.ss.usermodel.Cell;
 public class Seance {
     //Création
     public static String seance = "Séance";
-    public static int nombreExereciceMax = 0;
-    public static int nombreColonneSeance = 0;
+    private static int nombreExereciceMax = 0;
+    private static int nombreColonneSeance = 0;
     
-    public String nomF = Excel.nomFichier;
+    private String nomF = Excel.nomFichier;
     
-    protected String type;
-    protected String nom;  
+    private String type;
+    private String nom;  
     
     public Seance(String nomJP, String type, String nomExo){  //    Appel de la classe fille avec les instances de la classe mere
         if(nomJP.equals("init")){
-            System.out.println("Initialisation ...");
+            //System.out.println("Initialisation ...");
         }
          else{
             this.nom = nomJP;
             this.type = type;
             ajouterSeance(nomJP, type, nomExo);
          }
-         
-         
-         //ajouterExercicesSeance(nbExo);
-         /*
-         if(getDispoJours(jourP) == false){  //jour dispo
-             Planning p1 = new Planning(nomJP, jourP);
-             ajouterSeance(nomJP, jourP);
-             ajouterExercicesSeance(nbExo);
-         }
-         else{
-             ajouterSeance(nomJP, jourP);
-             ajouterExercicesSeance(nbExo);
-         */
     }  
 
    
@@ -96,11 +82,10 @@ public class Seance {
                 if(testNomS.trim().equals(nomS)){
                     Row row = sheet.getRow(i);
                     int colonneMax = row.getLastCellNum();
-                    //System.out.println("nombre cell : " + colonneMax);
                     if(colonneMax < 11){
                         row.createCell(colonneMax).setCellValue(nomExo); 
                         nombreExerciceMax = row.getLastCellNum() - 2;
-                        System.out.println("Ajout d'un exo");
+                        //System.out.println("Ajout d'un exo");
                         try (FileOutputStream fileOut = new FileOutputStream(nomF + ".xlsx")) { //ecrit dans le fichier
                             workbook.write(fileOut);
                         }
@@ -152,8 +137,6 @@ public class Seance {
         catch (IOException e) {
             e.printStackTrace();
         }
-        //ligne --;
-        //nombreColonneSeance = colonne;
         return colonne;
    }
    
@@ -170,7 +153,6 @@ public class Seance {
         catch (IOException e) {
             e.printStackTrace();
         }
-        //ligne --;
         nombreColonneSeance = ligne;
         return ligne;
     }
@@ -194,7 +176,7 @@ public class Seance {
                                 sheet.shiftRows(ligne + 1, sheet.getLastRowNum(), -1); //   réorganiser les lignes
                             }
                             nombreColonneSeance--;
-                            System.out.println("Seance " + nomExo + " est supprimé");
+                            //System.out.println("Seance " + nomExo + " est supprimé");
                             //break;
                         }
                     }
@@ -239,7 +221,7 @@ public class Seance {
                                 */
                                 row.removeCell(cellExo);
                                 //row.shiftCellsLeft(colonne + 1, cMax, 1); //   réorganiser les lignes
-                                System.out.println("Exercice " + exo + " supprimé de la séance " + nomS);
+                                //System.out.println("Exercice " + exo + " supprimé de la séance " + nomS);
                                 //break; // Vous pouvez ajouter une logique pour gérer la suppression de plusieurs occurrences
                             }
                         }
@@ -417,7 +399,7 @@ public class Seance {
    }
    
    public int getNombreExerciceMax(){
-       System.out.println("Nombre exercies max : " + nombreExereciceMax);
+       //System.out.println("Nombre exercies max : " + nombreExereciceMax);
        return nombreExereciceMax;
    }
     

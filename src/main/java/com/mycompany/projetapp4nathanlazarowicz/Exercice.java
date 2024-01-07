@@ -3,21 +3,13 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 
-//import static com.mycompany.projetapp4nathanlazarowicz.Excel.nombreColonneExercices;
-
 package com.mycompany.projetapp4nathanlazarowicz;
 
-
-
-import java.util.Collections;
-import java.util.ArrayList;
 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.time.LocalDate;
 import javax.swing.JTable;
-import javax.swing.table.DefaultTableModel;
 import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
@@ -32,13 +24,12 @@ public class Exercice {
     public static int nombreColonneExercices = 0; //
     public static String exercice = "Exercice"; //sheet
     
-    public String nomF = Excel.nomFichier; //appel de variable de la classe Excel 
-    public JTable tableExercice = Menu.tableExercice;  //permet d'avoir M : updateTableFromExcel
+    private String nomF = Excel.nomFichier; //appel de variable de la classe Excel 
+    private JTable tableExercice = Menu.tableExercice;  //permet d'avoir M : updateTableFromExcel
     
     public Exercice(String nomExo, String typeExo, String groupementMuscu, String muscle){     //abstract ?
-        //this.typeExercice = typeExo;
         if(nomExo.equals("init")){
-            System.out.println("Initialisation ...");
+            //System.out.println("Initialisation ...");
         }
         else{
             if(returnExercice(nomExo) == false){
@@ -66,13 +57,13 @@ public class Exercice {
             row.createCell(2).setCellValue(groupementMuscu);
             row.createCell(3).setCellValue(muscle);
             
-            // Écrivez le classeur dans un fichier
+            // Ecrit dans le fichier
             try (FileOutputStream fileOut = new FileOutputStream(nomF + ".xlsx")) {
                 workbook.write(fileOut);
             }
-            // Fermez le classeur pour libérer les ressources
+            // Ferme le fichier
             workbook.close();
-            System.out.println("Vous avez ajouté un nouveau exercice : " + nomExo);
+            //System.out.println("Vous avez ajouté un nouveau exercice : " + nomExo);
             return nombreColonneExercices;
         }
         catch (IOException e) {
@@ -103,7 +94,7 @@ public class Exercice {
                                 sheet.shiftRows(ligne + 1, sheet.getLastRowNum(), -1); //   réorganiser les lignes
                             }
                             nombreColonneExercices--;
-                            System.out.println("Exercice " + nomExo + " est supprimé");
+                            //System.out.println("Exercice " + nomExo + " est supprimé");
                             //break;
                         }
                     }
@@ -138,7 +129,7 @@ public class Exercice {
                 Cell cell3 = row.getCell(3);
                 exerciceData[3] = (cell3 != null) ? cell3.getStringCellValue() : "";
                 
-                System.out.println("Exercice : " + exerciceData[0] + "\nType : " + exerciceData[1] + "\ngroupement muscu : " + exerciceData[2] + "\nmuscle : " + exerciceData[3]);
+                //System.out.println("Exercice : " + exerciceData[0] + "\nType : " + exerciceData[1] + "\ngroupement muscu : " + exerciceData[2] + "\nmuscle : " + exerciceData[3]);
             }
             else {
                 System.out.println("Ligne inexistante dans la feuille de calcul.");
@@ -165,7 +156,6 @@ public class Exercice {
         catch (IOException e) {
             e.printStackTrace();
         }
-        //ligne --;
         nombreColonneExercices = ligne;
         return ligne;
     }
@@ -187,7 +177,7 @@ public class Exercice {
                         String nom = cell.getStringCellValue();
 
                         if (recherche.equalsIgnoreCase(nom)) {
-                            System.out.println("Exercice " + recherche + " trouvé à la ligne : " + i);
+                            //System.out.println("Exercice " + recherche + " trouvé à la ligne : " + i);
                         }
                     }
                 }
@@ -218,7 +208,7 @@ public class Exercice {
                         String nom = cell.getStringCellValue();
 
                         if (typeExo.equalsIgnoreCase(nom)) { // comparer deux string sans prendre en compte les majuscules
-                            System.out.println("Type exercice " + typeExo + " trouvé à la ligne : " + i);
+                            //System.out.println("Type exercice " + typeExo + " trouvé à la ligne : " + i);
                             //return i;
                         }
                     }
@@ -251,7 +241,7 @@ public class Exercice {
                         String nom = cell.getStringCellValue();
 
                         if (nomExo.equalsIgnoreCase(nom)) { // comparer deux string sans prendre en compte les majuscules
-                            System.out.println("Type exercice " + nomExo + " existe");
+                            //System.out.println("Type exercice " + nomExo + " existe");
                             retour = true;
                             //return i;
                         }
@@ -280,7 +270,7 @@ public class Exercice {
                 Cell cell0 = row.getCell(0);
                 nomExo = (cell0 != null) ? cell0.getStringCellValue() : "";
                 
-                System.out.println("Exercice : " + nomExo);
+                //System.out.println("Exercice : " + nomExo);
             }
             else {
                 System.out.println("Ligne inexistante dans la feuille de calcul.");

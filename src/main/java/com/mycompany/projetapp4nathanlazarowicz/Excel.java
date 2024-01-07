@@ -16,10 +16,10 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
  */
 public class Excel {
         public static String nomFichier;    //static permet de récup la variable dans autre class
-        public final String majMusculation = Musculation.majMusculation; //sheet
-        public String planning = Planning.planning;
-        public String exercice = Exercice.exercice;
-        public String seance = Seance.seance;
+        private final String majMusculation = Musculation.majMusculation; //sheet
+        private String planning = Planning.planning;
+        private String exercice = Exercice.exercice;
+        private String seance = Seance.seance;
 
         
     public Excel(String nomF){
@@ -29,7 +29,7 @@ public class Excel {
     public void creerFichierExcel(String nomF){
         this.nomFichier = nomF;
         try {
-            // Créez un classeur Excel (XLSX)
+            // Crée un classeur Excel (XLSX)
             Workbook workbook = new XSSFWorkbook();
             
             //  Feuille Planning : comporte nom des sénaces / jours
@@ -80,9 +80,7 @@ public class Excel {
             rowM.createCell(5).setCellValue("Poids");
             
             //  Feuille exercices
-            // Créez une feuille de calcul dans le classeur
             Sheet sheetExercice = workbook.createSheet(exercice);
-            // Créez une ligne dans la feuille de calcul
             Row rowE = sheetExercice.createRow(0);
             rowE.createCell(0).setCellValue("Nom exercice");
             rowE.createCell(1).setCellValue("Type d'exercice");
@@ -108,12 +106,9 @@ public class Excel {
                 }
             }
 
-            // Écrivez le classeur dans un fichier
             try (FileOutputStream fileOut = new FileOutputStream(nomF + ".xlsx")) {    //fichier.xlsx
                 workbook.write(fileOut);
             }
-
-            // Fermez le classeur pour libérer les ressources
             workbook.close();
 
             System.out.println("Fichier Excel créé avec succès, nom de votre fichier : " + nomF);
