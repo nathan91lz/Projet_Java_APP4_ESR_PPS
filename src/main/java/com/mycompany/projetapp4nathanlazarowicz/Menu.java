@@ -4,11 +4,13 @@
  */
 package com.mycompany.projetapp4nathanlazarowicz;
 
+import java.awt.Image;
 import java.awt.MouseInfo;
 import java.awt.event.KeyEvent;
 import java.util.Arrays;
 import java.util.HashSet;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.ImageIcon;
 import javax.swing.JMenuItem;
 import javax.swing.table.DefaultTableModel;
 
@@ -28,8 +30,11 @@ public class Menu extends javax.swing.JFrame {
         
         initialisation();
         //code 
-        
-        
+
+
+        ImageIcon icon = new ImageIcon("icon.PNG"); // Assurez-vous que le chemin est correct
+        Image imageIcon = icon.getImage();
+        setIconImage(imageIcon);
     }
     
     //Méthodes :
@@ -50,7 +55,6 @@ public class Menu extends javax.swing.JFrame {
         labelDimancheSeance.setText(planning.getNomSeancePlanning("dimanche"));
         
         //Exercice
-        
         Exercice exercice = new Exercice("init", "initialisation", "initialisation", "initialisation");
         int ligneExercice = exercice.getNombreLigneExercice();
         //tableExercice.addRow(new Object[]{nomExo, typeExo, grpMuscu, muscle});
@@ -174,7 +178,9 @@ public class Menu extends javax.swing.JFrame {
         Options = new javax.swing.JPanel();
         bpNewDataBase = new javax.swing.JButton();
         reset1 = new javax.swing.JButton();
+        bpNewDataBase1 = new javax.swing.JButton();
 
+        popupReset.setTitle("Reset du fichier");
         popupReset.setMaximumSize(new java.awt.Dimension(250, 150));
         popupReset.setMinimumSize(new java.awt.Dimension(250, 150));
         popupReset.setPreferredSize(new java.awt.Dimension(250, 150));
@@ -182,9 +188,7 @@ public class Menu extends javax.swing.JFrame {
 
         jLabel11.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
         jLabel11.setText("Voulez vous reset le fichier ?");
-        jLabel11.setMaximumSize(new java.awt.Dimension(183, 18));
         jLabel11.setMinimumSize(new java.awt.Dimension(250, 150));
-        jLabel11.setPreferredSize(new java.awt.Dimension(183, 18));
 
         jButton1.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
         jButton1.setText("Oui");
@@ -231,11 +235,13 @@ public class Menu extends javax.swing.JFrame {
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Track your gym training ");
+        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setMinimumSize(new java.awt.Dimension(800, 420));
         setPreferredSize(new java.awt.Dimension(800, 420));
         setSize(new java.awt.Dimension(800, 420));
 
-        jTabbedPane1.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
+        jTabbedPane1.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
         jTabbedPane1.setMinimumSize(new java.awt.Dimension(800, 400));
         jTabbedPane1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -335,7 +341,7 @@ public class Menu extends javax.swing.JFrame {
                 .addComponent(bpQuestion)
                 .addGap(33, 33, 33)
                 .addComponent(bpModifier, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
                 .addComponent(bpSupprimer, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(21, 21, 21))
         );
@@ -433,7 +439,7 @@ public class Menu extends javax.swing.JFrame {
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(jLabel8))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(labelLundi)
                     .addComponent(labelLundiSeance))
@@ -490,7 +496,6 @@ public class Menu extends javax.swing.JFrame {
         });
 
         labelNombreExercice.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
-        labelNombreExercice.setText("0");
 
         tableSeance.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -611,7 +616,7 @@ public class Menu extends javax.swing.JFrame {
                         .addComponent(txtExercice2, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(10, 10, 10)
                         .addComponent(labelNombreExercice, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(bpAjouterSeance, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(SéancesLayout.createSequentialGroup()
                         .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -626,7 +631,7 @@ public class Menu extends javax.swing.JFrame {
                         .addGroup(SéancesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(bpSupprimerSeance, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(bpSupprimerExercice2))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(24, Short.MAX_VALUE))
             .addComponent(jScrollPane2)
         );
         SéancesLayout.setVerticalGroup(
@@ -650,7 +655,7 @@ public class Menu extends javax.swing.JFrame {
                     .addComponent(txtRechercheNumeroExercice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(bpSupprimerExercice2))
                 .addGap(10, 10, 10)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 211, Short.MAX_VALUE))
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Séances", Séances);
@@ -774,7 +779,7 @@ public class Menu extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(bpAjouterMusculation)
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 252, Short.MAX_VALUE))
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 251, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Musculation", Musculation);
@@ -804,10 +809,10 @@ public class Menu extends javax.swing.JFrame {
         jLabel4.setText("Type :");
 
         jLabel5.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
-        jLabel5.setText("Groupement Musculaire :");
+        jLabel5.setText("Groupes Musculaire :");
 
         jLabel6.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
-        jLabel6.setText("Muscles");
+        jLabel6.setText("Muscles :");
 
         txtTypeExercice.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
         txtTypeExercice.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Musculation", "Endurance", "Conditionnement" }));
@@ -878,23 +883,23 @@ public class Menu extends javax.swing.JFrame {
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel7Layout.createSequentialGroup()
                         .addGap(17, 17, 17)
-                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(jPanel7Layout.createSequentialGroup()
                                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(138, 138, 138)
+                                .addGap(108, 108, 108)
+                                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtNomExercice, javax.swing.GroupLayout.DEFAULT_SIZE, 179, Short.MAX_VALUE)
+                                    .addComponent(txtTypeExercice, 0, 1, Short.MAX_VALUE)))
+                            .addGroup(jPanel7Layout.createSequentialGroup()
+                                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(16, 16, 16)
                                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(txtTypeExercice, 0, 1, Short.MAX_VALUE)
-                                    .addComponent(txtNomExercice, javax.swing.GroupLayout.DEFAULT_SIZE, 145, Short.MAX_VALUE)))
-                            .addGroup(jPanel7Layout.createSequentialGroup()
-                                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(txtGrpMuscu, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel7Layout.createSequentialGroup()
-                                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtMuscle, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(txtGrpMuscu, 0, 179, Short.MAX_VALUE)
+                                    .addComponent(txtMuscle, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jPanel7Layout.createSequentialGroup()
                         .addGap(18, 18, 18)
@@ -903,9 +908,10 @@ public class Menu extends javax.swing.JFrame {
                         .addComponent(txtRechercheExercice))
                     .addGroup(jPanel7Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(bpAjouterExercice, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(bpSupprimerExercice, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addComponent(bpSupprimerExercice, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(bpAjouterExercice, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel7Layout.setVerticalGroup(
@@ -927,9 +933,9 @@ public class Menu extends javax.swing.JFrame {
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtMuscle, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(bpAjouterExercice, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(bpAjouterExercice)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
                     .addComponent(txtRechercheExercice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -955,9 +961,9 @@ public class Menu extends javax.swing.JFrame {
         ExercicesLayout.setHorizontalGroup(
             ExercicesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(ExercicesLayout.createSequentialGroup()
-                .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 409, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 394, Short.MAX_VALUE))
         );
         ExercicesLayout.setVerticalGroup(
             ExercicesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -983,6 +989,14 @@ public class Menu extends javax.swing.JFrame {
             }
         });
 
+        bpNewDataBase1.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
+        bpNewDataBase1.setText("Ajouter exercice de base");
+        bpNewDataBase1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bpNewDataBase1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout OptionsLayout = new javax.swing.GroupLayout(Options);
         Options.setLayout(OptionsLayout);
         OptionsLayout.setHorizontalGroup(
@@ -991,8 +1005,9 @@ public class Menu extends javax.swing.JFrame {
                 .addGap(37, 37, 37)
                 .addGroup(OptionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(reset1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(bpNewDataBase, javax.swing.GroupLayout.DEFAULT_SIZE, 167, Short.MAX_VALUE))
-                .addContainerGap(596, Short.MAX_VALUE))
+                    .addComponent(bpNewDataBase, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(bpNewDataBase1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(530, Short.MAX_VALUE))
         );
         OptionsLayout.setVerticalGroup(
             OptionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1001,7 +1016,9 @@ public class Menu extends javax.swing.JFrame {
                 .addComponent(reset1)
                 .addGap(36, 36, 36)
                 .addComponent(bpNewDataBase)
-                .addContainerGap(232, Short.MAX_VALUE))
+                .addGap(36, 36, 36)
+                .addComponent(bpNewDataBase1)
+                .addContainerGap(166, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Options", Options);
@@ -1022,63 +1039,60 @@ public class Menu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     
-    //Planning
-    private void txtJourSeanceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtJourSeanceActionPerformed
+    
+    
+    //POPUP RESET
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        Seance seance = new Seance("init","","");
-        int seanceMax  = seance.getSeanceMax();
-        String[] dataSeance = new String[seanceMax];
-        
-        for(int i = 1; i <= seanceMax; i++){
-            dataSeance[i-1] = seance.getNomSeance(i);
+        Excel reset = new Excel("baseDeDonnee"); 
+        reset.creerFichierExcel("baseDeDonnee");
+        initialisation();
+        popupReset.setVisible(false);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        popupReset.setVisible(false);
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jTabbedPane1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTabbedPane1MouseClicked
+        // TODO add your handling code here:
+        Exercice exercice = new Exercice("init","","","");
+        int exoMax = exercice.getNombreLigneExercice();
+        String[] dataExo = new String[exoMax];
+
+        for(int i = 1; i <= exoMax; i++){
+            dataExo[i-1] = exercice.getExercice(i);
         }
-        
-        Arrays.sort(dataSeance, String.CASE_INSENSITIVE_ORDER);
-        
-        DefaultComboBoxModel model = (DefaultComboBoxModel) txtNomSeance.getModel();
-        
+
+        //Arrays.sort(dataExo); //tri par ordre alphabétique
+        Arrays.sort(dataExo, String.CASE_INSENSITIVE_ORDER);
+
+        DefaultComboBoxModel model = (DefaultComboBoxModel) txtExercice3.getModel();
+
         model.removeAllElements();
-        for (String seanceData : dataSeance) {
-            model.addElement(seanceData);
+        for (String exerciceData : dataExo) {
+            model.addElement(exerciceData);
         }
-    }//GEN-LAST:event_txtJourSeanceActionPerformed
+    }//GEN-LAST:event_jTabbedPane1MouseClicked
 
-    //EXERCICE
-    private void txtTypeExerciceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTypeExerciceActionPerformed
+    //Option
+    private void reset1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reset1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtTypeExerciceActionPerformed
+        //popupReset.show(this, reset1.getX(), reset1.getY() + reset1.getHeight()); //affiche une fenetre (ex : ? -> fenetre explication)
+        int x = MouseInfo.getPointerInfo().getLocation().x + 100;
+        int y = MouseInfo.getPointerInfo().getLocation().y + 100;
+        popupReset.setLocation(x, y);
+        popupReset.setVisible(true);
+    }//GEN-LAST:event_reset1ActionPerformed
 
-    private void txtNomExerciceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNomExerciceActionPerformed
+    //OPtions
+    private void bpNewDataBaseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bpNewDataBaseActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtNomExerciceActionPerformed
-
-    private void txtMuscleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMuscleActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtMuscleActionPerformed
-
-    private void bpAjouterExerciceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bpAjouterExerciceActionPerformed
-        // TODO add your handling code here:
-        String nomExo = txtNomExercice.getText();
-        String typeExo = (String)txtTypeExercice.getSelectedItem();
-        String grpMuscu = (String)txtGrpMuscu.getSelectedItem();
-        String muscle = (String)txtMuscle.getSelectedItem();
-        
-        Exercice exercice = new Exercice(nomExo, typeExo, grpMuscu, muscle);
-        //int ligne = exercice.getNombreLigneExercice();
-        //tableExercice.getModel().addRow(new Object[]{nomExo, typeExo, grpMuscu, muscle});
-        DefaultTableModel model = (DefaultTableModel) tableExercice.getModel();
-        model.addRow(new Object[]{nomExo, typeExo, grpMuscu, muscle});
-        
-        /*
-        tableExercice.getModel().setValueAt(nomExo, ligne - 1, 0);
-        tableExercice.getModel().setValueAt(typeExo, ligne - 1, 1);
-        tableExercice.getModel().setValueAt(grpMuscu, ligne - 1, 2);
-        tableExercice.getModel().setValueAt(muscle, ligne - 1, 3);
-        */
-        
-        txtNomExercice.setText("");
-        
-    }//GEN-LAST:event_bpAjouterExerciceActionPerformed
+        Excel excel = new Excel("BaseDeDonnee");
+        excel.creerFichierExcel("BaseDeDonnee");
+        initialisation();
+    }//GEN-LAST:event_bpNewDataBaseActionPerformed
 
     private void bpSupprimerExerciceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bpSupprimerExerciceActionPerformed
         // TODO add your handling code here:
@@ -1096,7 +1110,7 @@ public class Menu extends javax.swing.JFrame {
             tableExercice.getModel().setValueAt(exerciceData[1], i, 1);
             tableExercice.getModel().setValueAt(exerciceData[2], i, 2);
             tableExercice.getModel().setValueAt(exerciceData[3], i, 3);
-            
+
         }
         DefaultTableModel model = (DefaultTableModel) tableSeance.getModel();
         model.removeRow(ligne);
@@ -1108,68 +1122,106 @@ public class Menu extends javax.swing.JFrame {
         */
         //DefaultTableModel model = (DefaultTableModel) tableExercice.getModel();
         //model.removeRow(ligne);
-        
+
         txtRechercheExercice.setText(null);
     }//GEN-LAST:event_bpSupprimerExerciceActionPerformed
+
+    //Exercice
+    private void txtRechercheExerciceKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtRechercheExerciceKeyPressed
+        // TODO add your handling code here:
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            bpSupprimerExerciceActionPerformed(null);
+        }
+    }//GEN-LAST:event_txtRechercheExerciceKeyPressed
 
     private void txtRechercheExerciceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtRechercheExerciceActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtRechercheExerciceActionPerformed
 
-    private void bpModifierMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bpModifierMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_bpModifierMouseClicked
-
-    
-    //PLANNING SUITE :
-    private void bpModifierActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bpModifierActionPerformed
-        // TODO add your handling code here:
-        String jourSeance = (String)txtJourSeance.getSelectedItem();
-        String nomSeance = (String)txtNomSeance.getSelectedItem();
-        
-        Planning planning = new Planning(nomSeance, jourSeance);
-        
-        switch(jourSeance){
-            case "Lundi" : labelLundiSeance.setText(nomSeance); break;
-            case "Mardi" : labelMardiSeance.setText(nomSeance); break;
-            case "Mercredi" : labelMercrediSeance.setText(nomSeance); break;
-            case "Jeudi" : labelJeudiSeance.setText(nomSeance); break;
-            case "Vendredi" : labelVendrediSeance.setText(nomSeance); break;
-            case "Samedi" : labelSamediSeance.setText(nomSeance); break;
-            case "Dimanche" : labelDimancheSeance.setText(nomSeance); break;
-        }
-    }//GEN-LAST:event_bpModifierActionPerformed
-
-    private void bpSupprimerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bpSupprimerActionPerformed
-        // TODO add your handling code here:
-        String jourSeance = (String)txtJourSeance.getSelectedItem();
-        
-        Planning planning = new Planning("", jourSeance);
-        
-        switch(jourSeance){
-            case "Lundi" : labelLundiSeance.setText(null); break;
-            case "Mardi" : labelMardiSeance.setText(null); break;
-            case "Mercredi" : labelMercrediSeance.setText(null); break;
-            case "Jeudi" : labelJeudiSeance.setText(null); break;
-            case "Vendredi" : labelVendrediSeance.setText(null); break;
-            case "Samedi" : labelSamediSeance.setText(null); break;
-            case "Dimanche" : labelDimancheSeance.setText(null); break;
-        }
-    }//GEN-LAST:event_bpSupprimerActionPerformed
-
-    //EXERCICE
-    private void txtNomExerciceMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtNomExerciceMouseClicked
-        // TODO add your handling code here:
-        txtNomExercice.setText(null);
-    }//GEN-LAST:event_txtNomExerciceMouseClicked
-
-    
-    
     //EXERCICE SUITE
     private void txtRechercheExerciceMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtRechercheExerciceMouseClicked
         // TODO add your handling code here:
         txtRechercheExercice.setText(null);
     }//GEN-LAST:event_txtRechercheExerciceMouseClicked
+
+    private void bpAjouterExerciceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bpAjouterExerciceActionPerformed
+        // TODO add your handling code here:
+        String nomExo = txtNomExercice.getText();
+        String typeExo = (String)txtTypeExercice.getSelectedItem();
+        String grpMuscu = (String)txtGrpMuscu.getSelectedItem();
+        String muscle = (String)txtMuscle.getSelectedItem();
+
+        Exercice exercice = new Exercice(nomExo, typeExo, grpMuscu, muscle);
+        //int ligne = exercice.getNombreLigneExercice();
+        //tableExercice.getModel().addRow(new Object[]{nomExo, typeExo, grpMuscu, muscle});
+        DefaultTableModel model = (DefaultTableModel) tableExercice.getModel();
+        model.addRow(new Object[]{nomExo, typeExo, grpMuscu, muscle});
+
+        /*
+        tableExercice.getModel().setValueAt(nomExo, ligne - 1, 0);
+        tableExercice.getModel().setValueAt(typeExo, ligne - 1, 1);
+        tableExercice.getModel().setValueAt(grpMuscu, ligne - 1, 2);
+        tableExercice.getModel().setValueAt(muscle, ligne - 1, 3);
+        */
+
+        txtNomExercice.setText("");
+
+    }//GEN-LAST:event_bpAjouterExerciceActionPerformed
+
+    private void txtMuscleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMuscleActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtMuscleActionPerformed
+
+    //Exercice
+    private void txtGrpMuscuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtGrpMuscuActionPerformed
+        // TODO add your handling code here:
+        final String[] J = {"Quadriceps", "Mollet", "ischio", "Adducteur", "Fessier"};
+        final String[] B = {"Biceps", "Triceps", "Avant bras"};
+        final String[] D = {"Trapèze", "Grand dorsale", "Lombaire"};
+        final String[] P = {"Suppérieur", "Inférieur"};
+        final String[] E = {"Antérieur", "Latérale", "Postérieur"};
+
+        DefaultComboBoxModel model = (DefaultComboBoxModel) txtMuscle.getModel();
+
+        String grpM = (String) txtGrpMuscu.getSelectedItem();
+        switch (grpM) {
+            case "Jambes":
+            model.removeAllElements();
+            for (String muscle : J) {
+                model.addElement(muscle);
+            }
+            break;
+            case "Bras":
+            model.removeAllElements();
+            for (String muscle : B) {
+                model.addElement(muscle);
+            }
+            break;
+            case "Dos":
+            model.removeAllElements();
+            for (String muscle : D) {
+                model.addElement(muscle);
+            }
+            break;
+            case "Pectoraux":
+            model.removeAllElements();
+            for (String muscle : P) {
+                model.addElement(muscle);
+            }
+            break;
+            case "Epaules":
+            model.removeAllElements();
+            for (String muscle : E) {
+                model.addElement(muscle);
+            }
+            break;
+        }
+    }//GEN-LAST:event_txtGrpMuscuActionPerformed
+
+    //EXERCICE
+    private void txtTypeExerciceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTypeExerciceActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtTypeExerciceActionPerformed
 
     private void txtNomExerciceKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNomExerciceKeyPressed
         // TODO add your handling code here:
@@ -1178,64 +1230,115 @@ public class Menu extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_txtNomExerciceKeyPressed
 
-    //Exercice
-    private void txtGrpMuscuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtGrpMuscuActionPerformed
+    private void txtNomExerciceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNomExerciceActionPerformed
         // TODO add your handling code here:
-        final String[] J = {"Quadriceps", "Mollet", "ischio", "Adducteur", "Fessier"};
-        final String[] B = {"Biceps", "Triceps", "Avant bras"};
-        final String[] D = {"Trapèze", "Grand dorsale", "Lombaire"};
-        final String[] P = {"Haut", "Bas"};
-        final String[] E = {"Antérieur", "Latérale", "Postérieur"};
-    
-        DefaultComboBoxModel model = (DefaultComboBoxModel) txtMuscle.getModel();
+    }//GEN-LAST:event_txtNomExerciceActionPerformed
 
-        String grpM = (String) txtGrpMuscu.getSelectedItem();
-        switch (grpM) {
-            case "Jambes":
-                model.removeAllElements();
-                for (String muscle : J) {
-                    model.addElement(muscle);
-                }
-                break;
-            case "Bras":
-                model.removeAllElements();
-                for (String muscle : B) {
-                    model.addElement(muscle);
-                }
-                break;
-            case "Dos":
-                model.removeAllElements();
-                for (String muscle : D) {
-                    model.addElement(muscle);
-                }
-                break;
-            case "Pectoraux":
-                model.removeAllElements();
-                for (String muscle : P) {
-                    model.addElement(muscle);
-                }
-                break;
-            case "Epaules":
-                model.removeAllElements();
-                for (String muscle : E) {
-                    model.addElement(muscle);
-                }
-                break;
+    //EXERCICE
+    private void txtNomExerciceMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtNomExerciceMouseClicked
+        // TODO add your handling code here:
+        txtNomExercice.setText(null);
+    }//GEN-LAST:event_txtNomExerciceMouseClicked
+
+    private void bpAjouterMusculationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bpAjouterMusculationActionPerformed
+        // TODO add your handling code here:
+
+        String nomExo = (String)txtExercice3.getSelectedItem();
+        String date = txtDate.getText();
+        String heure = txtHeure.getText();
+        int serie = Integer.parseInt(txtSerie.getText());
+        int repetition = Integer.parseInt(txtRepetition.getText());
+        int poids = Integer.parseInt(txtPoids.getText());
+
+        Musculation muscu = new Musculation("init","","","");
+        muscu.updateMusculation(nomExo, heure, date, serie, repetition, poids);
+        //int ligne = exercice.getNombreLigneExercice();
+        //tableExercice.getModel().addRow(new Object[]{nomExo, typeExo, grpMuscu, muscle});
+        DefaultTableModel model = (DefaultTableModel) tableMusculation.getModel();
+        model.addRow(new Object[]{nomExo, date, heure, serie, repetition, poids});
+
+        /*
+        tableExercice.getModel().setValueAt(nomExo, ligne - 1, 0);
+        tableExercice.getModel().setValueAt(typeExo, ligne - 1, 1);
+        tableExercice.getModel().setValueAt(grpMuscu, ligne - 1, 2);
+        tableExercice.getModel().setValueAt(muscle, ligne - 1, 3);
+        */
+
+        txtDate.setText(null);
+        txtHeure.setText(null);
+        txtSerie.setText("Séries");
+        txtRepetition.setText("Répétitions");
+        txtPoids.setText("Poids");
+    }//GEN-LAST:event_bpAjouterMusculationActionPerformed
+
+    private void txtPoidsKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPoidsKeyPressed
+        // TODO add your handling code here:
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            bpAjouterMusculationActionPerformed(null);
         }
-    }//GEN-LAST:event_txtGrpMuscuActionPerformed
+    }//GEN-LAST:event_txtPoidsKeyPressed
 
-    //OPtions
-    private void bpNewDataBaseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bpNewDataBaseActionPerformed
+    private void txtPoidsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPoidsActionPerformed
         // TODO add your handling code here:
-        Excel excel = new Excel("BaseDeDonnee");
-        excel.creerFichierExcel("BaseDeDonnee");
-    }//GEN-LAST:event_bpNewDataBaseActionPerformed
+    }//GEN-LAST:event_txtPoidsActionPerformed
 
-    //Planning
-    private void txtNomSeanceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNomSeanceActionPerformed
+    private void txtRepetitionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtRepetitionActionPerformed
         // TODO add your handling code here:
-        
-    }//GEN-LAST:event_txtNomSeanceActionPerformed
+    }//GEN-LAST:event_txtRepetitionActionPerformed
+
+    private void txtSerieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSerieActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtSerieActionPerformed
+
+    private void txtHeureActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtHeureActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtHeureActionPerformed
+
+    private void txtDateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDateActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtDateActionPerformed
+
+    //Musculation
+    private void txtExercice3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtExercice3ActionPerformed
+        // TODO add your handling code here:
+        Musculation muscu = new Musculation("init", "","","");
+        String heure = muscu.getHeure();
+        String date = muscu.getDate();
+
+        txtDate.setText(date);
+        txtHeure.setText(heure);
+        txtSerie.setText(null);
+        txtRepetition.setText(null);
+        txtPoids.setText(null);
+
+    }//GEN-LAST:event_txtExercice3ActionPerformed
+
+    private void txtRechercheNumeroExerciceKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtRechercheNumeroExerciceKeyPressed
+        // TODO add your handling code here:
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            bpSupprimerExercice2ActionPerformed(null);
+        }
+    }//GEN-LAST:event_txtRechercheNumeroExerciceKeyPressed
+
+    private void txtRechercheNumeroExerciceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtRechercheNumeroExerciceActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtRechercheNumeroExerciceActionPerformed
+
+    private void txtRechercheNumeroExerciceMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtRechercheNumeroExerciceMouseClicked
+        // TODO add your handling code here:
+        txtRechercheNumeroExercice.setText(null);
+    }//GEN-LAST:event_txtRechercheNumeroExerciceMouseClicked
+
+    private void txtTypeSeanceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTypeSeanceActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtTypeSeanceActionPerformed
+
+    private void txtRechercheSeanceKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtRechercheSeanceKeyPressed
+        // TODO add your handling code here:
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            bpSupprimerSeanceActionPerformed(null);
+        }
+    }//GEN-LAST:event_txtRechercheSeanceKeyPressed
 
     private void txtRechercheSeanceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtRechercheSeanceActionPerformed
         // TODO add your handling code here:
@@ -1255,7 +1358,7 @@ public class Menu extends javax.swing.JFrame {
         int colonne = numeroExo + 1;
         System.out.println(recherche + numeroExo);
         seance.removeExerciceSeance(recherche, numeroExo);
-        
+
         tableSeance.getModel().setValueAt(null, ligne - 1, colonne);
     }//GEN-LAST:event_bpSupprimerExercice2ActionPerformed
 
@@ -1283,12 +1386,11 @@ public class Menu extends javax.swing.JFrame {
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
             bpAjouterSeanceActionPerformed(null);
         }
-        
+
     }//GEN-LAST:event_txtNomSeance2KeyPressed
 
     private void txtNomSeance2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNomSeance2ActionPerformed
         // TODO add your handling code here:
-
     }//GEN-LAST:event_txtNomSeance2ActionPerformed
 
     private void txtNomSeance2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtNomSeance2MouseClicked
@@ -1297,20 +1399,20 @@ public class Menu extends javax.swing.JFrame {
         Exercice exercice = new Exercice("init","","","");
         int exoMax = exercice.getNombreLigneExercice();
         String[] dataExo = new String[exoMax];
-        
+
         for(int i = 1; i <= exoMax; i++){
             dataExo[i-1] = exercice.getExercice(i);
         }
-        
+
         //Arrays.sort(dataExo); //tri par ordre alphabétique
         Arrays.sort(dataExo, String.CASE_INSENSITIVE_ORDER);
-        
+
         DefaultComboBoxModel model = (DefaultComboBoxModel) txtExercice2.getModel();
-        
+
         model.removeAllElements();
         for (String exerciceData : dataExo) {
             model.addElement(exerciceData);
-        } 
+        }
     }//GEN-LAST:event_txtNomSeance2MouseClicked
 
     private void bpAjouterSeanceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bpAjouterSeanceActionPerformed
@@ -1333,20 +1435,20 @@ public class Menu extends javax.swing.JFrame {
         else{
             Seance seance = new Seance("init", "", "");
             seance.setExerciceSeance(nomSeance, exercice);
-            
+
             DefaultTableModel model = (DefaultTableModel) tableSeance.getModel();
             int ligne = test.getLigneSeance(nomSeance);
             int colonne = test.getColonneSeance(ligne);
             tableSeance.getModel().setValueAt(exercice, ligne - 1, colonne - 1);
             /*
             model.removeRow(ligne);
-            
+
             String[] seanceData = seance.lectureDonneesSeance(ligne + 1);//+1
             model.addRow(new Object[]{
-                    seanceData[0], seanceData[1], seanceData[2], seanceData[3],
-                    seanceData[4], seanceData[5], seanceData[6], seanceData[7],
-                    seanceData[8], seanceData[9], seanceData[10], seanceData[11]
-                    });
+                seanceData[0], seanceData[1], seanceData[2], seanceData[3],
+                seanceData[4], seanceData[5], seanceData[6], seanceData[7],
+                seanceData[8], seanceData[9], seanceData[10], seanceData[11]
+            });
             */
             /*
             for(int c = 0; c <= 11; c++){
@@ -1356,9 +1458,9 @@ public class Menu extends javax.swing.JFrame {
             for(int c = 0; c <= 11; c++){
                 tableSeance.getModel().setValueAt(seanceData[c], ligne, c);
             }
-            
+
             //tableSeance.getModel().setValueAt(exercice, ligne, colonne);
-            
+
             nombreExo += colonne;
             labelNombreExercice.setText(Integer.toString(nombreExo));
             */
@@ -1375,7 +1477,7 @@ public class Menu extends javax.swing.JFrame {
             model.addRow(new Object[]{nomSeance, type, exercice});
             //labelNombreExercice.setText(Integer.toString(nombreExo));
             */
-            
+
             //Raffaichissement du tableau :
             /*
             int ligneM = seance.getNombreLigneSeance();
@@ -1386,163 +1488,12 @@ public class Menu extends javax.swing.JFrame {
             initialisation();
             */
         }
-        
+
     }//GEN-LAST:event_bpAjouterSeanceActionPerformed
 
     private void txtExercice2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtExercice2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtExercice2ActionPerformed
-
-    private void txtTypeSeanceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTypeSeanceActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtTypeSeanceActionPerformed
-
-    private void txtRechercheSeanceKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtRechercheSeanceKeyPressed
-        // TODO add your handling code here:
-        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
-            bpSupprimerSeanceActionPerformed(null);
-        }
-    }//GEN-LAST:event_txtRechercheSeanceKeyPressed
-
-    private void txtRechercheNumeroExerciceMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtRechercheNumeroExerciceMouseClicked
-        // TODO add your handling code here:
-        txtRechercheNumeroExercice.setText(null);
-    }//GEN-LAST:event_txtRechercheNumeroExerciceMouseClicked
-
-    private void txtRechercheNumeroExerciceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtRechercheNumeroExerciceActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtRechercheNumeroExerciceActionPerformed
-
-    private void txtRechercheNumeroExerciceKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtRechercheNumeroExerciceKeyPressed
-        // TODO add your handling code here:
-        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
-            bpSupprimerExercice2ActionPerformed(null);
-        }
-    }//GEN-LAST:event_txtRechercheNumeroExerciceKeyPressed
-
-    //Musculation
-    private void txtExercice3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtExercice3ActionPerformed
-        // TODO add your handling code here:
-        Musculation muscu = new Musculation("init", "","","");
-        String heure = muscu.getHeure();
-        String date = muscu.getDate();
-        
-        txtDate.setText(date);
-        txtHeure.setText(heure);
-        txtSerie.setText(null);
-        txtRepetition.setText(null);
-        txtPoids.setText(null);
-        
-    }//GEN-LAST:event_txtExercice3ActionPerformed
-
-    private void txtDateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDateActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtDateActionPerformed
-
-    private void txtHeureActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtHeureActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtHeureActionPerformed
-
-    private void bpAjouterMusculationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bpAjouterMusculationActionPerformed
-        // TODO add your handling code here:
-        
-        String nomExo = (String)txtExercice3.getSelectedItem();
-        String date = txtDate.getText();
-        String heure = txtHeure.getText();
-        int serie = Integer.parseInt(txtSerie.getText());
-        int repetition = Integer.parseInt(txtRepetition.getText());
-        int poids = Integer.parseInt(txtPoids.getText());
-        
-        Musculation muscu = new Musculation("init","","","");
-        muscu.updateMusculation(nomExo, heure, date, serie, repetition, poids);
-        //int ligne = exercice.getNombreLigneExercice();
-        //tableExercice.getModel().addRow(new Object[]{nomExo, typeExo, grpMuscu, muscle});
-        DefaultTableModel model = (DefaultTableModel) tableMusculation.getModel();
-        model.addRow(new Object[]{nomExo, date, heure, serie, repetition, poids});
-        
-        /*
-        tableExercice.getModel().setValueAt(nomExo, ligne - 1, 0);
-        tableExercice.getModel().setValueAt(typeExo, ligne - 1, 1);
-        tableExercice.getModel().setValueAt(grpMuscu, ligne - 1, 2);
-        tableExercice.getModel().setValueAt(muscle, ligne - 1, 3);
-        */
-        
-        txtDate.setText(null);
-        txtHeure.setText(null);
-        txtSerie.setText("Séries");
-        txtRepetition.setText("Répétitions");
-        txtPoids.setText("Poids");
-    }//GEN-LAST:event_bpAjouterMusculationActionPerformed
-
-    private void txtPoidsKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPoidsKeyPressed
-        // TODO add your handling code here:
-        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
-            bpAjouterMusculationActionPerformed(null);
-        }
-    }//GEN-LAST:event_txtPoidsKeyPressed
-
-    private void txtSerieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSerieActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtSerieActionPerformed
-
-    private void txtRepetitionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtRepetitionActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtRepetitionActionPerformed
-
-    private void txtPoidsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPoidsActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtPoidsActionPerformed
-
-    private void jTabbedPane1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTabbedPane1MouseClicked
-        // TODO add your handling code here:
-        Exercice exercice = new Exercice("init","","","");
-        int exoMax = exercice.getNombreLigneExercice();
-        String[] dataExo = new String[exoMax];
-        
-        for(int i = 1; i <= exoMax; i++){
-            dataExo[i-1] = exercice.getExercice(i);
-        }
-        
-        //Arrays.sort(dataExo); //tri par ordre alphabétique
-        Arrays.sort(dataExo, String.CASE_INSENSITIVE_ORDER);
-        
-        DefaultComboBoxModel model = (DefaultComboBoxModel) txtExercice3.getModel();
-        
-        model.removeAllElements();
-        for (String exerciceData : dataExo) {
-            model.addElement(exerciceData);
-        }
-    }//GEN-LAST:event_jTabbedPane1MouseClicked
-
-    //Exercice
-    private void txtRechercheExerciceKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtRechercheExerciceKeyPressed
-        // TODO add your handling code here:
-        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
-            bpSupprimerExerciceActionPerformed(null);
-        }
-    }//GEN-LAST:event_txtRechercheExerciceKeyPressed
-
-    //Option
-    private void reset1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reset1ActionPerformed
-        // TODO add your handling code here:
-        //popupReset.show(this, reset1.getX(), reset1.getY() + reset1.getHeight()); //affiche une fenetre (ex : ? -> fenetre explication)
-        int x = MouseInfo.getPointerInfo().getLocation().x + 100;
-        int y = MouseInfo.getPointerInfo().getLocation().y + 100;
-        popupReset.setLocation(x, y);
-        popupReset.setVisible(true);
-    }//GEN-LAST:event_reset1ActionPerformed
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-        Excel reset = new Excel("baseDeDonnee"); 
-        reset.creerFichierExcel("baseDeDonnee");
-        initialisation();
-    }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-        popupReset.setVisible(false);
-    }//GEN-LAST:event_jButton2ActionPerformed
 
     private void bpQuestionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bpQuestionActionPerformed
         // TODO add your handling code here:
@@ -1550,38 +1501,88 @@ public class Menu extends javax.swing.JFrame {
         //JMenuItem item = new JMenuItem("test");
     }//GEN-LAST:event_bpQuestionActionPerformed
 
+    //Planning
+    private void txtNomSeanceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNomSeanceActionPerformed
+        // TODO add your handling code here:
+
+    }//GEN-LAST:event_txtNomSeanceActionPerformed
+
+    //Planning
+    private void txtJourSeanceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtJourSeanceActionPerformed
+        // TODO add your handling code here:
+        Seance seance = new Seance("init","","");
+        int seanceMax  = seance.getSeanceMax();
+        String[] dataSeance = new String[seanceMax];
+
+        for(int i = 1; i <= seanceMax; i++){
+            dataSeance[i-1] = seance.getNomSeance(i);
+        }
+
+        Arrays.sort(dataSeance, String.CASE_INSENSITIVE_ORDER);
+
+        DefaultComboBoxModel model = (DefaultComboBoxModel) txtNomSeance.getModel();
+
+        model.removeAllElements();
+        for (String seanceData : dataSeance) {
+            model.addElement(seanceData);
+        }
+    }//GEN-LAST:event_txtJourSeanceActionPerformed
+
+    //PLANNING SUITE :
+    private void bpModifierActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bpModifierActionPerformed
+        // TODO add your handling code here:
+        String jourSeance = (String)txtJourSeance.getSelectedItem();
+        String nomSeance = (String)txtNomSeance.getSelectedItem();
+
+        Planning planning = new Planning(nomSeance, jourSeance);
+
+        switch(jourSeance){
+            case "Lundi" : labelLundiSeance.setText(nomSeance); break;
+            case "Mardi" : labelMardiSeance.setText(nomSeance); break;
+            case "Mercredi" : labelMercrediSeance.setText(nomSeance); break;
+            case "Jeudi" : labelJeudiSeance.setText(nomSeance); break;
+            case "Vendredi" : labelVendrediSeance.setText(nomSeance); break;
+            case "Samedi" : labelSamediSeance.setText(nomSeance); break;
+            case "Dimanche" : labelDimancheSeance.setText(nomSeance); break;
+        }
+    }//GEN-LAST:event_bpModifierActionPerformed
+
+    private void bpModifierMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bpModifierMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_bpModifierMouseClicked
+
+    private void bpSupprimerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bpSupprimerActionPerformed
+        // TODO add your handling code here:
+        String jourSeance = (String)txtJourSeance.getSelectedItem();
+
+        Planning planning = new Planning("", jourSeance);
+
+        switch(jourSeance){
+            case "Lundi" : labelLundiSeance.setText(null); break;
+            case "Mardi" : labelMardiSeance.setText(null); break;
+            case "Mercredi" : labelMercrediSeance.setText(null); break;
+            case "Jeudi" : labelJeudiSeance.setText(null); break;
+            case "Vendredi" : labelVendrediSeance.setText(null); break;
+            case "Samedi" : labelSamediSeance.setText(null); break;
+            case "Dimanche" : labelDimancheSeance.setText(null); break;
+        }
+    }//GEN-LAST:event_bpSupprimerActionPerformed
+
+    //OPTIONS :
+    private void bpNewDataBase1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bpNewDataBase1ActionPerformed
+        // TODO add your handling code here:
+        Excel excel = new Excel("BaseDeDonnee");
+        excel.exercicesDeBase("baseDeDonnee");
+        initialisation();
+    }//GEN-LAST:event_bpNewDataBase1ActionPerformed
+
    
     
     /**
      * @param args the command line arguments
      */
+    /*
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        
-        
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Menu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Menu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Menu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Menu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new Menu().setVisible(true);
@@ -1590,23 +1591,24 @@ public class Menu extends javax.swing.JFrame {
         
         
     }
-
+    */
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Exercices;
     private javax.swing.JPanel Musculation;
     private javax.swing.JPanel Options;
     private javax.swing.JPanel Planning;
     private javax.swing.JPanel Séances;
-    protected javax.swing.JButton bpAjouterExercice;
-    protected javax.swing.JButton bpAjouterMusculation;
-    protected javax.swing.JButton bpAjouterSeance;
+    private javax.swing.JButton bpAjouterExercice;
+    private javax.swing.JButton bpAjouterMusculation;
+    private javax.swing.JButton bpAjouterSeance;
     private javax.swing.JButton bpModifier;
     private javax.swing.JButton bpNewDataBase;
+    private javax.swing.JButton bpNewDataBase1;
     private javax.swing.JButton bpQuestion;
     private javax.swing.JButton bpSupprimer;
     private javax.swing.JButton bpSupprimerExercice;
-    protected javax.swing.JButton bpSupprimerExercice2;
-    protected javax.swing.JButton bpSupprimerSeance;
+    private javax.swing.JButton bpSupprimerExercice2;
+    private javax.swing.JButton bpSupprimerSeance;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
@@ -1644,9 +1646,9 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JLabel labelVendrediSeance;
     private javax.swing.JFrame popupReset;
     private javax.swing.JButton reset1;
-    public static javax.swing.JTable tableExercice;
-    public static javax.swing.JTable tableMusculation;
-    public static javax.swing.JTable tableSeance;
+    private javax.swing.JTable tableExercice;
+    private javax.swing.JTable tableMusculation;
+    private javax.swing.JTable tableSeance;
     private javax.swing.JFormattedTextField txtDate;
     private javax.swing.JComboBox<String> txtExercice2;
     private javax.swing.JComboBox<String> txtExercice3;
