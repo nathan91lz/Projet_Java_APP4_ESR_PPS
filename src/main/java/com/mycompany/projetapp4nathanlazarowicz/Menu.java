@@ -15,7 +15,8 @@ import javax.swing.JMenuItem;
 import javax.swing.table.DefaultTableModel;
 
 /**
- *
+ *Cette classe permet l'affichage de l'interface graphique
+ * 
  * @author lazarowicz
  */
 public class Menu extends javax.swing.JFrame {
@@ -109,6 +110,16 @@ public class Menu extends javax.swing.JFrame {
         jLabel11 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        jLabel12 = new javax.swing.JLabel();
+        popupPlanningQuestion = new javax.swing.JFrame();
+        jpanel0 = new javax.swing.JPanel();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        bpOkPopupPlanningQuestion = new javax.swing.JButton();
+        popupOptionsExercices = new javax.swing.JFrame();
+        jLabel16 = new javax.swing.JLabel();
+        jButton3 = new javax.swing.JButton();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         Planning = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
@@ -149,16 +160,6 @@ public class Menu extends javax.swing.JFrame {
         txtTypeSeance = new javax.swing.JComboBox<>();
         jLabel10 = new javax.swing.JLabel();
         txtRechercheNumeroExercice = new javax.swing.JTextField();
-        Musculation = new javax.swing.JPanel();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        tableMusculation = new javax.swing.JTable();
-        txtExercice3 = new javax.swing.JComboBox<>();
-        txtDate = new javax.swing.JFormattedTextField();
-        txtHeure = new javax.swing.JFormattedTextField();
-        txtSerie = new javax.swing.JTextField();
-        txtRepetition = new javax.swing.JTextField();
-        txtPoids = new javax.swing.JTextField();
-        bpAjouterMusculation = new javax.swing.JButton();
         Exercices = new javax.swing.JPanel();
         jPanel7 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
@@ -175,18 +176,28 @@ public class Menu extends javax.swing.JFrame {
         bpSupprimerExercice = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tableExercice = new javax.swing.JTable();
+        Musculation = new javax.swing.JPanel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        tableMusculation = new javax.swing.JTable();
+        txtExercice3 = new javax.swing.JComboBox<>();
+        txtDate = new javax.swing.JFormattedTextField();
+        txtHeure = new javax.swing.JFormattedTextField();
+        txtSerie = new javax.swing.JTextField();
+        txtRepetition = new javax.swing.JTextField();
+        txtPoids = new javax.swing.JTextField();
+        bpAjouterMusculation = new javax.swing.JButton();
         Options = new javax.swing.JPanel();
         bpNewDataBase = new javax.swing.JButton();
         reset1 = new javax.swing.JButton();
         bpNewDataBase1 = new javax.swing.JButton();
 
         popupReset.setTitle("Reset du fichier");
-        popupReset.setMaximumSize(new java.awt.Dimension(250, 150));
-        popupReset.setMinimumSize(new java.awt.Dimension(250, 150));
-        popupReset.setPreferredSize(new java.awt.Dimension(250, 150));
-        popupReset.setSize(new java.awt.Dimension(250, 150));
+        popupReset.setMaximumSize(new java.awt.Dimension(350, 170));
+        popupReset.setMinimumSize(new java.awt.Dimension(350, 170));
+        popupReset.setPreferredSize(new java.awt.Dimension(350, 170));
+        popupReset.setSize(new java.awt.Dimension(350, 170));
 
-        jLabel11.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
+        jLabel11.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         jLabel11.setText("Voulez vous reset le fichier ?");
         jLabel11.setMinimumSize(new java.awt.Dimension(250, 150));
 
@@ -206,32 +217,135 @@ public class Menu extends javax.swing.JFrame {
             }
         });
 
+        jLabel12.setText("Cette action vous oblige à relancer l'application");
+
         javax.swing.GroupLayout popupResetLayout = new javax.swing.GroupLayout(popupReset.getContentPane());
         popupReset.getContentPane().setLayout(popupResetLayout);
         popupResetLayout.setHorizontalGroup(
             popupResetLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(popupResetLayout.createSequentialGroup()
-                .addGroup(popupResetLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(popupResetLayout.createSequentialGroup()
-                        .addGap(34, 34, 34)
-                        .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(popupResetLayout.createSequentialGroup()
-                        .addGap(33, 33, 33)
-                        .addComponent(jButton1)
-                        .addGap(30, 30, 30)
-                        .addComponent(jButton2)))
-                .addContainerGap(33, Short.MAX_VALUE))
+                .addGap(45, 45, 45)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 80, Short.MAX_VALUE)
+                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(45, 45, 45))
+            .addGroup(popupResetLayout.createSequentialGroup()
+                .addGap(25, 25, 25)
+                .addGroup(popupResetLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel12))
+                .addGap(25, 25, 25))
         );
         popupResetLayout.setVerticalGroup(
             popupResetLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(popupResetLayout.createSequentialGroup()
-                .addGap(18, 18, 18)
+                .addGap(19, 19, 19)
                 .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel12)
+                .addGap(31, 31, 31)
                 .addGroup(popupResetLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2))
-                .addGap(36, 36, 36))
+                    .addComponent(jButton2)
+                    .addComponent(jButton1))
+                .addGap(18, 18, 18))
+        );
+
+        popupPlanningQuestion.setMaximumSize(new java.awt.Dimension(275, 150));
+        popupPlanningQuestion.setMinimumSize(new java.awt.Dimension(275, 150));
+
+        jLabel13.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        jLabel13.setText("Si vous n'avez pas d'affichage :");
+
+        jLabel14.setText("Vérifiez si vous avez bien créé une séance");
+
+        jLabel15.setText("et des exerices au préalable.");
+
+        bpOkPopupPlanningQuestion.setText("Ok");
+        bpOkPopupPlanningQuestion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bpOkPopupPlanningQuestionActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jpanel0Layout = new javax.swing.GroupLayout(jpanel0);
+        jpanel0.setLayout(jpanel0Layout);
+        jpanel0Layout.setHorizontalGroup(
+            jpanel0Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jpanel0Layout.createSequentialGroup()
+                .addGroup(jpanel0Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jpanel0Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(jpanel0Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel14)
+                            .addComponent(jLabel15)
+                            .addGroup(jpanel0Layout.createSequentialGroup()
+                                .addGap(23, 23, 23)
+                                .addComponent(jLabel13))))
+                    .addGroup(jpanel0Layout.createSequentialGroup()
+                        .addGap(98, 98, 98)
+                        .addComponent(bpOkPopupPlanningQuestion)))
+                .addGap(21, 21, 21))
+        );
+        jpanel0Layout.setVerticalGroup(
+            jpanel0Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jpanel0Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel13)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel14)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel15)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
+                .addComponent(bpOkPopupPlanningQuestion)
+                .addGap(17, 17, 17))
+        );
+
+        javax.swing.GroupLayout popupPlanningQuestionLayout = new javax.swing.GroupLayout(popupPlanningQuestion.getContentPane());
+        popupPlanningQuestion.getContentPane().setLayout(popupPlanningQuestionLayout);
+        popupPlanningQuestionLayout.setHorizontalGroup(
+            popupPlanningQuestionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jpanel0, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        popupPlanningQuestionLayout.setVerticalGroup(
+            popupPlanningQuestionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jpanel0, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        popupOptionsExercices.setMaximumSize(new java.awt.Dimension(325, 125));
+        popupOptionsExercices.setMinimumSize(new java.awt.Dimension(325, 125));
+
+        jLabel16.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
+        jLabel16.setText("Exercices de base ont été ajouté");
+
+        jButton3.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
+        jButton3.setText("OK");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout popupOptionsExercicesLayout = new javax.swing.GroupLayout(popupOptionsExercices.getContentPane());
+        popupOptionsExercices.getContentPane().setLayout(popupOptionsExercicesLayout);
+        popupOptionsExercicesLayout.setHorizontalGroup(
+            popupOptionsExercicesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(popupOptionsExercicesLayout.createSequentialGroup()
+                .addGap(26, 26, 26)
+                .addComponent(jLabel16)
+                .addContainerGap(21, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, popupOptionsExercicesLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton3)
+                .addGap(124, 124, 124))
+        );
+        popupOptionsExercicesLayout.setVerticalGroup(
+            popupOptionsExercicesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(popupOptionsExercicesLayout.createSequentialGroup()
+                .addGap(33, 33, 33)
+                .addComponent(jLabel16)
+                .addGap(18, 18, 18)
+                .addComponent(jButton3)
+                .addContainerGap(27, Short.MAX_VALUE))
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -288,7 +402,7 @@ public class Menu extends javax.swing.JFrame {
         });
 
         jLabel2.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
-        jLabel2.setText("Sélectionnez votre jour et entrez le nom de votre sénace");
+        jLabel2.setText("Sélectionnez votre jour et entrez le nom de votre sénace :");
 
         txtNomSeance.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
         txtNomSeance.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nom de votre séance"}));
@@ -312,36 +426,35 @@ public class Menu extends javax.swing.JFrame {
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addGap(20, 20, 20)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addContainerGap())
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(bpQuestion)
-                            .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(bpSupprimer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel5Layout.createSequentialGroup()
-                                    .addComponent(txtJourSeance, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(txtNomSeance, 0, 261, Short.MAX_VALUE))
-                                .addComponent(bpModifier, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                        .addGap(12, 12, 12))))
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(bpQuestion)
+                    .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(bpSupprimer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel5Layout.createSequentialGroup()
+                            .addComponent(txtJourSeance, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(18, 18, 18)
+                            .addComponent(txtNomSeance, 0, 261, Short.MAX_VALUE))
+                        .addComponent(bpModifier, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGap(12, 12, 12))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 472, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                .addGap(31, 31, 31)
+                .addGap(20, 20, 20)
                 .addComponent(jLabel2)
-                .addGap(18, 18, 18)
+                .addGap(29, 29, 29)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtJourSeance, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtNomSeance, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(bpQuestion)
-                .addGap(33, 33, 33)
+                .addGap(41, 41, 41)
                 .addComponent(bpModifier, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(bpSupprimer, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(21, 21, 21))
         );
@@ -660,130 +773,6 @@ public class Menu extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Séances", Séances);
 
-        tableMusculation.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "Exercices", "Date", "Heure", "Série", "Répétition", "Poids"
-            }
-        ));
-        jScrollPane3.setViewportView(tableMusculation);
-        tableMusculation.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
-
-        txtExercice3.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
-        txtExercice3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Exercice"}));
-        txtExercice3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtExercice3ActionPerformed(evt);
-            }
-        });
-
-        txtDate.setColumns(3);
-        txtDate.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("dd/MM/yyyy"))));
-        txtDate.setToolTipText("");
-        txtDate.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
-        txtDate.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtDateActionPerformed(evt);
-            }
-        });
-
-        txtHeure.setColumns(3);
-        txtHeure.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(java.text.DateFormat.getTimeInstance())));
-        txtHeure.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
-        txtHeure.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtHeureActionPerformed(evt);
-            }
-        });
-
-        txtSerie.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
-        txtSerie.setText("Séries");
-        txtSerie.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtSerieActionPerformed(evt);
-            }
-        });
-
-        txtRepetition.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
-        txtRepetition.setText("Répétitions");
-        txtRepetition.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtRepetitionActionPerformed(evt);
-            }
-        });
-
-        txtPoids.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
-        txtPoids.setText("Poids");
-        txtPoids.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtPoidsActionPerformed(evt);
-            }
-        });
-        txtPoids.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                txtPoidsKeyPressed(evt);
-            }
-        });
-
-        bpAjouterMusculation.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
-        bpAjouterMusculation.setText("Ajouter");
-        bpAjouterMusculation.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bpAjouterMusculationActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout MusculationLayout = new javax.swing.GroupLayout(Musculation);
-        Musculation.setLayout(MusculationLayout);
-        MusculationLayout.setHorizontalGroup(
-            MusculationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 815, Short.MAX_VALUE)
-            .addGroup(MusculationLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(txtExercice3, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(36, 36, 36)
-                .addComponent(txtDate, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, Short.MAX_VALUE)
-                .addComponent(txtHeure, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, Short.MAX_VALUE)
-                .addComponent(txtSerie, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(MusculationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(MusculationLayout.createSequentialGroup()
-                        .addGap(18, 18, Short.MAX_VALUE)
-                        .addComponent(txtRepetition, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, Short.MAX_VALUE)
-                        .addComponent(txtPoids, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(MusculationLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(bpAjouterMusculation, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap())
-        );
-        MusculationLayout.setVerticalGroup(
-            MusculationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MusculationLayout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addGroup(MusculationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(MusculationLayout.createSequentialGroup()
-                        .addGroup(MusculationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE, false)
-                            .addComponent(txtDate)
-                            .addComponent(txtHeure)
-                            .addComponent(txtSerie, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtRepetition, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtPoids, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 2, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MusculationLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(txtExercice3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(bpAjouterMusculation)
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 251, Short.MAX_VALUE))
-        );
-
-        jTabbedPane1.addTab("Musculation", Musculation);
-
         jLabel3.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
         jLabel3.setText("Exercice :");
 
@@ -823,7 +812,8 @@ public class Menu extends javax.swing.JFrame {
         });
 
         txtGrpMuscu.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
-        txtGrpMuscu.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Jambes", "Bras", "Dos", "Pectoraux", "Epaules"}));
+        txtGrpMuscu.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Abdominaux", "Bras", "Dos", "Epaules", "Jambes", "Pectoraux" }
+        ));
         txtGrpMuscu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtGrpMuscuActionPerformed(evt);
@@ -973,8 +963,132 @@ public class Menu extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Exercices", Exercices);
 
+        tableMusculation.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Exercices", "Date", "Heure", "Série", "Répétition", "Poids"
+            }
+        ));
+        jScrollPane3.setViewportView(tableMusculation);
+        tableMusculation.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
+
+        txtExercice3.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
+        txtExercice3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Exercice"}));
+        txtExercice3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtExercice3ActionPerformed(evt);
+            }
+        });
+
+        txtDate.setColumns(3);
+        txtDate.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("dd/MM/yyyy"))));
+        txtDate.setToolTipText("");
+        txtDate.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
+        txtDate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtDateActionPerformed(evt);
+            }
+        });
+
+        txtHeure.setColumns(3);
+        txtHeure.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(java.text.DateFormat.getTimeInstance())));
+        txtHeure.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
+        txtHeure.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtHeureActionPerformed(evt);
+            }
+        });
+
+        txtSerie.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
+        txtSerie.setText("Séries");
+        txtSerie.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtSerieActionPerformed(evt);
+            }
+        });
+
+        txtRepetition.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
+        txtRepetition.setText("Répétitions");
+        txtRepetition.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtRepetitionActionPerformed(evt);
+            }
+        });
+
+        txtPoids.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
+        txtPoids.setText("Poids");
+        txtPoids.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtPoidsActionPerformed(evt);
+            }
+        });
+        txtPoids.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtPoidsKeyPressed(evt);
+            }
+        });
+
+        bpAjouterMusculation.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
+        bpAjouterMusculation.setText("Ajouter");
+        bpAjouterMusculation.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bpAjouterMusculationActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout MusculationLayout = new javax.swing.GroupLayout(Musculation);
+        Musculation.setLayout(MusculationLayout);
+        MusculationLayout.setHorizontalGroup(
+            MusculationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 815, Short.MAX_VALUE)
+            .addGroup(MusculationLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(txtExercice3, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(36, 36, 36)
+                .addComponent(txtDate, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, Short.MAX_VALUE)
+                .addComponent(txtHeure, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, Short.MAX_VALUE)
+                .addComponent(txtSerie, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(MusculationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(MusculationLayout.createSequentialGroup()
+                        .addGap(18, 18, Short.MAX_VALUE)
+                        .addComponent(txtRepetition, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, Short.MAX_VALUE)
+                        .addComponent(txtPoids, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(MusculationLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(bpAjouterMusculation, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
+        );
+        MusculationLayout.setVerticalGroup(
+            MusculationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MusculationLayout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addGroup(MusculationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(MusculationLayout.createSequentialGroup()
+                        .addGroup(MusculationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE, false)
+                            .addComponent(txtDate)
+                            .addComponent(txtHeure)
+                            .addComponent(txtSerie, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtRepetition, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtPoids, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 2, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MusculationLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(txtExercice3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(bpAjouterMusculation)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 251, Short.MAX_VALUE))
+        );
+
+        jTabbedPane1.addTab("Suivi ", Musculation);
+
         bpNewDataBase.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
-        bpNewDataBase.setText("Nouveau fichier");
+        bpNewDataBase.setText("Créer nouveau fichier");
         bpNewDataBase.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bpNewDataBaseActionPerformed(evt);
@@ -982,7 +1096,7 @@ public class Menu extends javax.swing.JFrame {
         });
 
         reset1.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
-        reset1.setText("Reset");
+        reset1.setText("Reset du fichier");
         reset1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 reset1ActionPerformed(evt);
@@ -1038,16 +1152,14 @@ public class Menu extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    
-    
-    
+
     //POPUP RESET
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         Excel reset = new Excel("baseDeDonnee"); 
         reset.creerFichierExcel("baseDeDonnee");
-        initialisation();
         popupReset.setVisible(false);
+        initialisation();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -1180,6 +1292,7 @@ public class Menu extends javax.swing.JFrame {
         final String[] D = {"Trapèze", "Grand dorsale", "Lombaire"};
         final String[] P = {"Suppérieur", "Inférieur"};
         final String[] E = {"Antérieur", "Latérale", "Postérieur"};
+        final String[] A = {"Oblique", "Obdominaux"};
 
         DefaultComboBoxModel model = (DefaultComboBoxModel) txtMuscle.getModel();
 
@@ -1212,6 +1325,12 @@ public class Menu extends javax.swing.JFrame {
             case "Epaules":
             model.removeAllElements();
             for (String muscle : E) {
+                model.addElement(muscle);
+            }
+            break;
+            case "Abdominaux":
+            model.removeAllElements();
+            for (String muscle : A) {
                 model.addElement(muscle);
             }
             break;
@@ -1497,8 +1616,11 @@ public class Menu extends javax.swing.JFrame {
 
     private void bpQuestionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bpQuestionActionPerformed
         // TODO add your handling code here:
-        //popupQuestionPlanning.show(this, bpQuestion.getX(), bpQuestion.getY() + bpQuestion.getHeight()); //affiche une fenetre (ex : ? -> fenetre explication)
-        //JMenuItem item = new JMenuItem("test");
+        int x = MouseInfo.getPointerInfo().getLocation().x - 50;
+        int y = MouseInfo.getPointerInfo().getLocation().y - 50;
+        popupPlanningQuestion.setLocation(x, y);
+        popupPlanningQuestion.setUndecorated(true);
+        popupPlanningQuestion.setVisible(true);
     }//GEN-LAST:event_bpQuestionActionPerformed
 
     //Planning
@@ -1574,7 +1696,22 @@ public class Menu extends javax.swing.JFrame {
         Excel excel = new Excel("BaseDeDonnee");
         excel.exercicesDeBase("baseDeDonnee");
         initialisation();
+        int x = MouseInfo.getPointerInfo().getLocation().x - 50;
+        int y = MouseInfo.getPointerInfo().getLocation().y - 50;
+        popupOptionsExercices.setLocation(x, y);
+        popupOptionsExercices.setUndecorated(true);
+        popupOptionsExercices.setVisible(true);
     }//GEN-LAST:event_bpNewDataBase1ActionPerformed
+
+    private void bpOkPopupPlanningQuestionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bpOkPopupPlanningQuestionActionPerformed
+        // TODO add your handling code here:
+        popupPlanningQuestion.setVisible(false);
+    }//GEN-LAST:event_bpOkPopupPlanningQuestionActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+        popupOptionsExercices.setVisible(false);
+    }//GEN-LAST:event_jButton3ActionPerformed
 
    
     
@@ -1604,6 +1741,7 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JButton bpModifier;
     private javax.swing.JButton bpNewDataBase;
     private javax.swing.JButton bpNewDataBase1;
+    private javax.swing.JButton bpOkPopupPlanningQuestion;
     private javax.swing.JButton bpQuestion;
     private javax.swing.JButton bpSupprimer;
     private javax.swing.JButton bpSupprimerExercice;
@@ -1611,9 +1749,15 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JButton bpSupprimerSeance;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -1629,6 +1773,7 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JPanel jpanel0;
     private javax.swing.JLabel labelDimanche;
     private javax.swing.JLabel labelDimancheSeance;
     private javax.swing.JLabel labelJeudi;
@@ -1644,6 +1789,8 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JLabel labelSamediSeance;
     private javax.swing.JLabel labelVendredi;
     private javax.swing.JLabel labelVendrediSeance;
+    private javax.swing.JFrame popupOptionsExercices;
+    private javax.swing.JFrame popupPlanningQuestion;
     private javax.swing.JFrame popupReset;
     private javax.swing.JButton reset1;
     private javax.swing.JTable tableExercice;

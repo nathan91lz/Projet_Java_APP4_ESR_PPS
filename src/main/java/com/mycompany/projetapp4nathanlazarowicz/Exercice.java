@@ -27,7 +27,7 @@ public class Exercice {
     public static String exercice = "Exercice"; //sheet
 
     private String nomF = Excel.nomFichier; //appel de variable de la classe Excel 
-    private JTable tableExercice = Menu.tableExercice;  //permet d'avoir M : updateTableFromExcel
+    //private JTable tableExercice = Menu.tableExercice;  //permet d'avoir M : updateTableFromExcel
 
     /**
      * Constructeur de la classe Exercice.

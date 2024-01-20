@@ -4,22 +4,6 @@
 
 package com.mycompany.projetapp4nathanlazarowicz;
 
-/*
- *    Fichier excel : modifier .XML du projet : ajouter dans </project> :
- *        <dependencies>
- *           <!-- Apache POI pour la manipulation de fichiers Excel -->
- *            <dependency>
- *                <groupId>org.apache.poi</groupId>
- *                <artifactId>poi</artifactId>
- *                <version>5.1.0</version> <!-- Utilisez la dernière version disponible -->
- *            </dependency>
- *            <dependency>
- *                <groupId>org.apache.poi</groupId>
- *                <artifactId>poi-ooxml</artifactId>
- *                <version>5.1.0</version> <!-- Utilisez la dernière version disponible -->
- *            </dependency>
- *        </dependencies>
- */
 
 /**
  * Classe principale du projet APP4 de Nathan Lazarowicz.
@@ -45,7 +29,7 @@ public class ProjetAPP4NathanLazarowicz {
         //  tests Excel :
         Excel f = new Excel("baseDeDonnee");    //setup du fichier 
         //f.creerFichierExcel("baseDeDonnee");
-
+        //f.exercicesDeBase("baseDeDonnee");
 
         //  tests Exercice : 
         /*
@@ -63,6 +47,7 @@ public class ProjetAPP4NathanLazarowicz {
         exo1.updateMusculation(curl.getExercice(1), exo1.setHeure(11, 5, 8), exo1.setDate(24,03,2001), 6, 15, 40);
         //exo1.updateMusculation(curl.getExercice(2), exo1.getHeure(), exo1.getDate(), 3, 15, 20);
         */  
+        
 
         //System.out.println("Heure actuelle : " + exo1.getHeure());
         //System.out.println("Date actuelle : " + a.getDate());     
@@ -91,7 +76,6 @@ public class ProjetAPP4NathanLazarowicz {
         //Interface :
 
         new Menu().setVisible(true);
-
 
 
     }

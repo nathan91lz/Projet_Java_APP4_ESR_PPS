@@ -127,7 +127,6 @@ public class Excel {
                 workbook.write(fileOut);
             }
             workbook.close();
-
             System.out.println("Fichier Excel créé avec succès, nom de votre fichier : " + nomF);
 
         } catch (IOException e) {
@@ -147,6 +146,46 @@ public class Excel {
             Workbook workbook = new XSSFWorkbook(fileIn);            
             workbook.close();
         } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    
+    public void exercicesDeBase(String nomF){
+        this.nomFichier = nomF;
+        try (FileInputStream fileIn = new FileInputStream(nomF + ".xlsx")) {
+            Workbook workbook = new XSSFWorkbook(fileIn);
+            Sheet sheet = workbook.getSheet(exercice);      
+
+            Object[][] exercicesData = {
+                    {"Pompes", "Conditionnement", "Pectoraux", "Suppérieur"},
+                    {"Squats", "Musculation", "Jambes", "Quadriceps"},
+                    {"Curl", "Musculation", "Bras", "Biceps"},
+                    {"Tractions", "Conditionnement", "Dos", "Grand dorsale"},
+                    {"Dips", "Conditionnement", "Bras", "Tricpes"},
+                    {"Tractions", "Conditionnement", "Dos", "Grand dorsale"},
+                    {"Rowing barre", "Musculation", "Dos", "Grand dorsale"},
+                    {"Soulevé de terre", "Conditionnement", "Dos", "Grand dorsale"},
+                    {"Presse", "Musculation", "Jambes", "Quadriceps"},
+                    {"Leg curl", "Musculation", "Jambes", "Ischio"},
+                    {"Développé militaire", "Musculation", "Epaules", "Latérale"},
+                    {"Shrug", "Musculation", "Dos", "Trapèze"}
+            };
+
+            int numeroLigne = sheet.getLastRowNum();
+            
+            for (Object[] exerciceData : exercicesData) {
+                Row row = sheet.createRow(numeroLigne++);
+                int colNum = 0;
+                for (Object field : exerciceData) {
+                    row.createCell(colNum++).setCellValue((String) field);
+                }
+            }
+            
+            try (FileOutputStream fileOut = new FileOutputStream(nomF + ".xlsx")) {    //fichier.xlsx
+                workbook.write(fileOut);
+            }
+            workbook.close();
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
