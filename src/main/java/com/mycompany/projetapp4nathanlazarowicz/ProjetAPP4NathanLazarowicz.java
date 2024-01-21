@@ -14,7 +14,8 @@ package com.mycompany.projetapp4nathanlazarowicz;
  * L'interface utilisateur est également lancée à partir de cette classe.
  * 
  * Les tests et initialisations des différentes classes comme Excel, Exercice, Musculation,
- * Planning, et Seance sont effectués ici. L'interface graphique est lancée à la fin.
+ * Planning, et Seance sont effectués ici. La création d'un nouvel objet Excel est nécessaire pour récupérer la base de donnée. 
+ * L'interface graphique est lancée à la fin.
  * 
  * Note : Les sections de tests sont commentées et peuvent être activées pour tester 
  * différentes fonctionnalités de l'application.
@@ -25,9 +26,17 @@ public class ProjetAPP4NathanLazarowicz {
 
     public static void main(String[] args) {
 
-
+        
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                Excel f = new Excel("baseDeDonnee");    //setup du fichier 
+                new Menu().setVisible(true);
+            }
+        });
+        
         //  tests Excel :
-        Excel f = new Excel("baseDeDonnee");    //setup du fichier 
+        //Excel f = new Excel("baseDeDonnee");    //setup du fichier 
+        
         //f.creerFichierExcel("baseDeDonnee");
         //f.exercicesDeBase("baseDeDonnee");
 
@@ -75,7 +84,7 @@ public class ProjetAPP4NathanLazarowicz {
 
         //Interface :
 
-        new Menu().setVisible(true);
+        //new Menu().setVisible(true);
 
 
     }
