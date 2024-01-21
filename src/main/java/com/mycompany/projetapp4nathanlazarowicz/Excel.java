@@ -16,14 +16,20 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
  * y compris les séances de musculation, le planning, et les exercices.
  * Elle sert de base de donnée.
  *
+ * @param nomFichier est la variable correspondant au nom du fichier excel servant de base de donnée
+ * 
  * @author lazarowicz
  */
 public class Excel {
-        public static String nomFichier;    //static permet de récup la variable dans autre class
-        private final String majMusculation = Musculation.majMusculation; //sheet
-        private String planning = Planning.planning;
-        private String exercice = Exercice.exercice;
-        private String seance = Seance.seance;
+    
+    /**
+     * Nom du fichier Excel servant de base de données pour les séances d'exercice.
+     */
+    public static String nomFichier;    //static permet de récup la variable dans autre class
+    private final String majMusculation = Musculation.majMusculation; //sheet
+    private final String planning = Planning.planning;
+    private final String exercice = Exercice.exercice;
+    private final String seance = Seance.seance;
 
 
     /**
