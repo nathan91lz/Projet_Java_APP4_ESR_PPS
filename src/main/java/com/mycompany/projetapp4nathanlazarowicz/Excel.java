@@ -194,6 +194,7 @@ public class Excel {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        System.out.println("Ajout des exercices de base");
     }
 
 }

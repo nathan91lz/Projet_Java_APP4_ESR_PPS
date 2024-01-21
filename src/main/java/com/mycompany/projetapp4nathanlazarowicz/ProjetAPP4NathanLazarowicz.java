@@ -4,6 +4,7 @@
 
 package com.mycompany.projetapp4nathanlazarowicz;
 
+import java.io.File;
 
 /**
  * Classe principale du projet APP4 de Nathan Lazarowicz.
@@ -27,10 +28,27 @@ public class ProjetAPP4NathanLazarowicz {
 
     public static void main(String[] args) {
 
-        
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                String nomFichier = "baseDeDonnee";
+                File fichier = new File(nomFichier + ".xlsx");
+
+                // Vérifier si le fichier existe
+                if (!fichier.exists()) {
+                    // Créer le fichier Excel s'il n'existe pas
+                    System.out.println("Création du fichier");
+                    Excel fichierExcel = new Excel(nomFichier);
+                    fichierExcel.creerFichierExcel(nomFichier);
+                }
+
+                Excel f = new Excel(nomFichier); // setup du fichier
+                System.out.println("Ouverture du fichier");
+                new Menu().setVisible(true);
+            }
+        });
                 
         //  tests Excel :
-        Excel f = new Excel("baseDeDonnee");    //setup du fichier 
+        //Excel f = new Excel("baseDeDonnee");    //setup du fichier 
         
         //f.creerFichierExcel("baseDeDonnee");
         //f.exercicesDeBase("baseDeDonnee");
@@ -79,7 +97,7 @@ public class ProjetAPP4NathanLazarowicz {
 
         //Interface :
 
-        new Menu().setVisible(true);
+        //new Menu().setVisible(true);
 
 
     }
