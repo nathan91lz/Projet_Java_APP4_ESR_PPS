@@ -28,17 +28,9 @@ public class ProjetAPP4NathanLazarowicz {
     public static void main(String[] args) {
 
         
-        //java.awt.EventQueue.invokeLater(() -> {
-            // Initialisation de la gestion des données Excel
-            Excel f = new Excel("baseDeDonnee");
-            // Affichage de la fenêtre principale
-            new Menu().setVisible(true);
-        //});
-        
-        
-        
+                
         //  tests Excel :
-        //Excel f = new Excel("baseDeDonnee");    //setup du fichier 
+        Excel f = new Excel("baseDeDonnee");    //setup du fichier 
         
         //f.creerFichierExcel("baseDeDonnee");
         //f.exercicesDeBase("baseDeDonnee");
@@ -87,7 +79,7 @@ public class ProjetAPP4NathanLazarowicz {
 
         //Interface :
 
-        //new Menu().setVisible(true);
+        new Menu().setVisible(true);
 
 
     }

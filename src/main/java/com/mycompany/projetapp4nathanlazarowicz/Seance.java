@@ -25,7 +25,10 @@ import org.apache.poi.ss.usermodel.Cell;
  */
 public class Seance {
     //Création
-    public static String seance = "Séance";
+    /**
+     * Nom de la feuille du fichier excel
+     */
+    public static final String seance = "Séance";
     private static int nombreExereciceMax = 0;
     private static int nombreColonneSeance = 0;
 

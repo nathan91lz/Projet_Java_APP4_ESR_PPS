@@ -29,8 +29,11 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
  */
 public class Planning {
     // Attributs
+    /**
+     * Nom de la feuille du fichier excel
+     */
     public static String planning = "Planning";     
-    public String nomF = Excel.nomFichier;
+    private String nomF = Excel.nomFichier;
 
     private int joursPlanning;
     private String jour;

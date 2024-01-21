@@ -22,8 +22,8 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
  */
 public class Musculation extends Exercice{
     private String exerciceMuscu;
-    protected int poids;
-
+    private int poids;
+    
     public static final String majMusculation = "MaJMusculation"; //sheet
     private int nombreColonneMusculation = 0;
     private String nomF = Excel.nomFichier;

@@ -7,6 +7,7 @@
     <packaging>jar</packaging>
     <build>
         <plugins>
+            <!-- Plugin compiler Maven -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -17,13 +18,60 @@
                     </compilerArgs>
                 </configuration>
             </plugin>
+            <!-- 1)Plugin jar Maven -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.2.0</version>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <addClasspath>true</addClasspath>
+                            <mainClass>com.mycompany.projetapp4nathanlazarowicz.ProjetAPP4NathanLazarowicz</mainClass>
+                        </manifest>
+                    </archive>
+                </configuration>
+            </plugin>
+            <!-- 2)Plugin Fat jar pour inclure les dependance -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-shade-plugin</artifactId>
+                <version>3.2.4</version> <!-- Utilisez la dernière version disponible -->
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>shade</goal>
+                        </goals>
+                        <configuration>
+                            <createDependencyReducedPom>true</createDependencyReducedPom>
+                            <transformers>
+                                <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+                                    <mainClass>com.mycompany.projetapp4nathanlazarowicz.ProjetAPP4NathanLazarowicz</mainClass>
+                                </transformer>
+                            </transformers>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <!-- Plugin javadoc Maven -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>3.6.3</version> 
+                <configuration>
+                    <source>21</source> 
+                    <!-- Ignorer les avertissements de doclint -->
+                    <doclint>none</doclint>
+                </configuration>
+            </plugin>
         </plugins>
     </build>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>21</maven.compiler.source>
         <maven.compiler.target>21</maven.compiler.target>
-        <exec.mainClass>com.mycompany.projetapp4nathanlazarowicz.ProjetAPP4NathanLazarowicz</exec.mainClass>
+        <exec.mainClass>com.mycompany.projetapp4nathanlazarowicz.ProjetAPP4NathanLazarowicz</exec.mainClass> <!-- verifier si c'est bon -->
     </properties>
     <dependencies>
         <!-- Apache POI pour la manipulation de fichiers Excel -->

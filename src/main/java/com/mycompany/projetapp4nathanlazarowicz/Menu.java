@@ -349,7 +349,7 @@ public class Menu extends javax.swing.JFrame {
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Track your gym training ");
+        setTitle("Strength Training Tracker");
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setMinimumSize(new java.awt.Dimension(800, 420));
         setPreferredSize(new java.awt.Dimension(800, 420));
@@ -1718,10 +1718,12 @@ public class Menu extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
+    
     /*
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
+                Excel f = new Excel("baseDeDonnee");    //setup du fichier 
                 new Menu().setVisible(true);
             }
         });

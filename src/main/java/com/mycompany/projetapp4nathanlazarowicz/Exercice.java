@@ -22,9 +22,11 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 public class Exercice {
     //  Héritage :
     protected String typeExercice;
-
-    public static int nombreColonneExercices = 0; //
-    public static String exercice = "Exercice"; //sheet
+    private static int nombreColonneExercices = 0; //
+    /**
+     * Nom de la feuille du fichier excel
+     */
+    public static final String exercice = "Exercice"; //sheet
 
     private String nomF = Excel.nomFichier; //appel de variable de la classe Excel 
     //private JTable tableExercice = Menu.tableExercice;  //permet d'avoir M : updateTableFromExcel
